@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj": {}
+    "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj": {}
   },
   "projects": {
-    "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj": {
+    "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj",
+        "projectUniqueName": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj",
         "projectName": "Kharaei.Domain",
-        "projectPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj",
+        "projectPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj",
         "packagesPath": "C:\\Users\\Kharaei\\.nuget\\packages\\",
-        "outputPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\obj\\",
+        "outputPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -43,28 +43,40 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj": {
+    "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj",
+        "projectUniqueName": "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj",
         "projectName": "Kharaei.Infra.Data",
-        "projectPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj",
+        "projectPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj",
         "packagesPath": "C:\\Users\\Kharaei\\.nuget\\packages\\",
-        "outputPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\obj\\",
+        "outputPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -85,8 +97,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj": {
-                "projectPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj"
+              "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj": {
+                "projectPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj"
               }
             }
           }
@@ -100,17 +112,29 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

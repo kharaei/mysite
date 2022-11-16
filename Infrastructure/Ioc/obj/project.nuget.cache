@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OqoZHsmwQdw1B8Yy4vmzNjeu+QMf3avVxKXMXWTmc+bWvibQ608QKqE+0NG7NTx9fVgWSXq2KDHomU1tZ0yLSQ==",
+  "dgSpecHash": "OsO174ddaL97SMewL0vWQsHXKE5T9UZKliyaTnMCtmxOJ8JvosEvWjnBVxcr+fks6xaS/iCDnRNu4fSugafFaw==",
   "success": true,
-  "projectFilePath": "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Ioc\\Kharaei.Infra.Ioc.csproj",
+  "projectFilePath": "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Ioc\\Kharaei.Infra.Ioc.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
