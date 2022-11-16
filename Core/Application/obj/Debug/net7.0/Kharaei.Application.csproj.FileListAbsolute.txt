@@ -1,0 +1,5 @@
+C:\Local Drive\Business\my site\project-backend\Core\Application\obj\Debug\net7.0\Kharaei.Application.csproj.AssemblyReference.cache
+C:\Local Drive\Business\my site\project-backend\Core\Application\obj\Debug\net7.0\Kharaei.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Local Drive\Business\my site\project-backend\Core\Application\obj\Debug\net7.0\Kharaei.Application.AssemblyInfoInputs.cache
+C:\Local Drive\Business\my site\project-backend\Core\Application\obj\Debug\net7.0\Kharaei.Application.AssemblyInfo.cs
+C:\Local Drive\Business\my site\project-backend\Core\Application\obj\Debug\net7.0\Kharaei.Application.csproj.CoreCompileInputs.cache
