@@ -1,3 +1,4 @@
+using Kharaei.Infra.Ioc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+ 
+ 
+builder.Services.AddDbContext(app.Configuration);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
