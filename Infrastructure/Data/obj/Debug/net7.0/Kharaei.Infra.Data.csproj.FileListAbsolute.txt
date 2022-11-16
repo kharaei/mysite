@@ -1,0 +1,15 @@
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\bin\Debug\net7.0\Kharaei.Infra.Data.deps.json
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\bin\Debug\net7.0\Kharaei.Infra.Data.dll
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\bin\Debug\net7.0\Kharaei.Infra.Data.pdb
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\bin\Debug\net7.0\Kharaei.Domain.dll
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\bin\Debug\net7.0\Kharaei.Domain.pdb
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\Kharaei.Infra.Data.csproj.AssemblyReference.cache
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\Kharaei.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\Kharaei.Infra.Data.AssemblyInfoInputs.cache
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\Kharaei.Infra.Data.AssemblyInfo.cs
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\Kharaei.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\Kharaei.Infra.Data.csproj.CopyComplete
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\Kharaei.Infra.Data.dll
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\refint\Kharaei.Infra.Data.dll
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\Kharaei.Infra.Data.pdb
+C:\Local Drive\Business\my site\project-backend\Infrastructure\Data\obj\Debug\net7.0\ref\Kharaei.Infra.Data.dll
