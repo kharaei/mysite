@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\Kharaei.Application.csproj": {}
+    "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\Kharaei.Application.csproj": {}
   },
   "projects": {
-    "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\Kharaei.Application.csproj": {
+    "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\Kharaei.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\Kharaei.Application.csproj",
+        "projectUniqueName": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\Kharaei.Application.csproj",
         "projectName": "Kharaei.Application",
-        "projectPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\Kharaei.Application.csproj",
+        "projectPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\Kharaei.Application.csproj",
         "packagesPath": "C:\\Users\\Kharaei\\.nuget\\packages\\",
-        "outputPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\obj\\",
+        "outputPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

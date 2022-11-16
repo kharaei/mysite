@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj": {}
+    "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj": {}
   },
   "projects": {
-    "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj": {
+    "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj",
+        "projectUniqueName": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj",
         "projectName": "Kharaei.Domain",
-        "projectPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj",
+        "projectPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj",
         "packagesPath": "C:\\Users\\Kharaei\\.nuget\\packages\\",
-        "outputPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\obj\\",
+        "outputPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj": {
+    "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj",
+        "projectUniqueName": "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj",
         "projectName": "Kharaei.Infra.Data",
-        "projectPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj",
+        "projectPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\Kharaei.Infra.Data.csproj",
         "packagesPath": "C:\\Users\\Kharaei\\.nuget\\packages\\",
-        "outputPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\obj\\",
+        "outputPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Infrastructure\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -97,8 +97,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj": {
-                "projectPath": "c:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj"
+              "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj": {
+                "projectPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj"
               }
             }
           }
