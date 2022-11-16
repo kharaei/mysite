@@ -315,6 +315,19 @@
         "build": {
           "buildTransitive/net6.0/_._": {}
         }
+      },
+      "Kharaei.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Kharaei.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Kharaei.Domain.dll": {}
+        }
       }
     }
   },
@@ -760,10 +773,16 @@
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Kharaei.Domain/1.0.0": {
+      "type": "project",
+      "path": "../../Core/Domain/Kharaei.Domain.csproj",
+      "msbuildProject": "../../Core/Domain/Kharaei.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Kharaei.Domain >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.0"
     ]
   },
@@ -798,7 +817,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj": {
+              "projectPath": "C:\\Local Drive\\Business\\my site\\project-backend\\Core\\Domain\\Kharaei.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
