@@ -1,4 +1,5 @@
 using Kharaei.Infra.Ioc;
+using Kharaei.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ var app = builder.Build();
  
  
 builder.Services.AddDbContext(app.Configuration);
+SiteSettings _siteSetting = app.Configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>();
+builder.Services.AddCustomIdentity(_siteSetting.IdentitySettings);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

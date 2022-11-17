@@ -13,6 +13,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\Ioc\Kharaei.Infra.Ioc.csproj" />
+    <ProjectReference Include="..\..\Core\Application\Kharaei.Application.csproj" />
   </ItemGroup>
 
 </Project>

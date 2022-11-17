@@ -16,6 +16,7 @@ public class IdentitySettings
     public bool PasswordRequireLowercase { get; set; }
     public bool RequireUniqueEmail { get; set; }
 }
+
 public class JwtSettings
 {
     public string SecretKey { get; set; }
