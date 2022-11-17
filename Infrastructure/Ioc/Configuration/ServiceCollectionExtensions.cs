@@ -9,7 +9,7 @@ public static class ServiceCollectionExtensions
 {
     public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<KharaeiDbContext>(options =>
             {
                 options
                     .UseSqlServer(configuration.GetConnectionString("SqlServer"));

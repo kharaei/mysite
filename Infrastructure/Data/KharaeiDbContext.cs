@@ -6,9 +6,9 @@ using System.Reflection;
 
 namespace Kharaei.Infra.Data;
 
-public class ApplicationDbContext: IdentityDbContext<User, Role, int>
+public class KharaeiDbContext: IdentityDbContext<User, Role, int>
 {
-     public ApplicationDbContext(DbContextOptions options)
+     public KharaeiDbContext(DbContextOptions options)
             : base(options)
         {
 
