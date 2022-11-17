@@ -1,5 +1,4 @@
-using Kharaei.Infra.Ioc;
-using Kharaei.Application; 
+using Kharaei.Infra.Ioc; 
 
 var builder = WebApplication.CreateBuilder(args);
  

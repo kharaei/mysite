@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Kharaei.Domain;
 using Kharaei.Application;
+using Kharaei.Domain;
 using System.Reflection;
 
 namespace Kharaei.Infra.Data;

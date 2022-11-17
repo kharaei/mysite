@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json; 
+using Kharaei.Application;
 
-namespace Kharaei.Application;
+namespace Kharaei.Api;
 
 public class ApiResult
 {

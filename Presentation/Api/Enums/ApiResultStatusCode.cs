@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Kharaei.Application;
+namespace Kharaei.Api;
 
 public enum ApiResultStatusCode
 {
