@@ -5,7 +5,7 @@ namespace Kharaei.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class LayoutController : ControllerBase
+public class LayoutController : BaseController
 {
 
     [HttpPost("[action]")]
