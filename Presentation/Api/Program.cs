@@ -1,10 +1,14 @@
-using Kharaei.Infra.Ioc; 
+using Kharaei.Infra; 
+using Kharaei.Application; 
 
 var builder = WebApplication.CreateBuilder(args);
  
 // Add services to the container. 
 builder.Services.AddDbContext(builder.Configuration);
-builder.Services.AddCustomIdentity(builder.Configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>().IdentitySettings);
+var _siteSetting = builder.Configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>();
+builder.Services.AddCustomIdentity(_siteSetting.IdentitySettings);
+builder.Services.AddJwtAuthentication(_siteSetting.JwtSettings);
+builder.Services.AddCustomApiVersioning();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

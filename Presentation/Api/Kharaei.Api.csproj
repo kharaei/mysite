@@ -16,8 +16,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure\Data\Kharaei.Infra.Data.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Ioc\Kharaei.Infra.Ioc.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Kharaei.Infra.csproj" /> 
     <ProjectReference Include="..\..\Core\Application\Kharaei.Application.csproj" />
   </ItemGroup>
 
