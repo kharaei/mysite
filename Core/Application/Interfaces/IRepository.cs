@@ -1,8 +1,7 @@
 using Kharaei.Domain;
+using Kharaei.Application;
 using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore;
-using System.Threading;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore; 
 
 namespace Kharaei.Infra;
 
@@ -11,7 +10,6 @@ public interface IRepository<TEntity> where TEntity : class, IEntity
     DbSet<TEntity> Entities { get; }
     IQueryable<TEntity> Table { get; }
     IQueryable<TEntity> TableNoTracking { get; }
-
     void Add(TEntity entity, bool saveNow = true);
     Task AddAsync(TEntity entity, CancellationToken cancellationToken, bool saveNow = true);
     void AddRange(IEnumerable<TEntity> entities, bool saveNow = true);
