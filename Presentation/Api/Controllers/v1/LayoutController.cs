@@ -1,17 +1,14 @@
-
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Versioning;
 
-namespace Kharaei.Api.Controllers;
-
-[ApiController]
-[ApiVersion("1")]
-[Route("api/v{version:apiVersion}/[controller]")]
+namespace Kharaei.Api.Controllers.v1;
+  
+[ApiVersion("1.0")] 
+[Route("v1/[controller]")]
+[ApiExplorerSettings(GroupName = "v1")]
 public class LayoutController : BaseController
-{
-
-    [HttpPost("[action]")]
-    public IActionResult Get()
+{ 
+    [HttpGet] 
+    public virtual IActionResult Get()
     { 
         var model = new LayoutModel{
             Bio = "test...",
