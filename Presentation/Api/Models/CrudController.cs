@@ -14,6 +14,7 @@ public class CrudController<TDto, TSelectDto, TEntity, TKey> : BaseController
         where TEntity : BaseEntity<TKey>, new()
 {
     private readonly IRepository<TEntity> _repository;  
+    
     private Mapper _mapper;
 
     public CrudController(IRepository<TEntity> repository)

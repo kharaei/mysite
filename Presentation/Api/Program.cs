@@ -21,7 +21,8 @@ builder.Services.AddSwaggerGen(options => {
 
 
 var app = builder.Build();  
- 
+ app.UseCustomExceptionHandler();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

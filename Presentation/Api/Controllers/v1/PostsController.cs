@@ -7,9 +7,9 @@ namespace Kharaei.Api.Controllers.v1;
 [ApiVersion("1.0")] 
 [Route("v1/[controller]")]
 [ApiExplorerSettings(GroupName = "v1")]
-public class PostController : CrudController<PostDto, PostSelectDto, Post, int>
+public class PostsController : CrudController<PostDto, PostSelectDto, Post, int>
 { 
-    public PostController(IRepository<Post> repository)    
+    public PostsController(IRepository<Post> repository)    
             : base(repository)
         {
         }
