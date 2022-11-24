@@ -1,10 +1,11 @@
 using Kharaei.Infra; 
-using Kharaei.Application; 
-using Microsoft.OpenApi.Models;
+using Kharaei.Application;  
+using Microsoft.OpenApi.Models; 
 
 var builder = WebApplication.CreateBuilder(args);
  
 // Add services to the container. 
+builder.Services.InitializeAutoMapper();
 builder.Services.AddDbContext(builder.Configuration); 
 builder.Services.AddCustomIdentity(builder.Configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>().IdentitySettings);
 builder.Services.AddJwtAuthentication(builder.Configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>().JwtSettings);

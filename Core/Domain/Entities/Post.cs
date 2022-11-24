@@ -5,9 +5,9 @@ namespace Kharaei.Domain;
 
 public class Post: BaseEntity<int>
 {   
-    public required string Title { get; set; } 
-    public required string Image { get; set; }
-    public required string Text { get; set; }
+    public string Title { get; set; } 
+    public string Image { get; set; }
+    public string Text { get; set; }
     public string PublishDate { get; set; }
     public string PublishTime { get; set; }
     public int CategoryId { get; set; }
