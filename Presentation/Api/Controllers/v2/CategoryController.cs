@@ -7,10 +7,10 @@ namespace Kharaei.Api.Controllers.v2;
 [ApiVersion("2.0")]  
 [Route("api/v2/[controller]")]
 [ApiExplorerSettings(GroupName = "v2")] 
-public class PostsController : v1.PostsController
+public class CategoryController: CrudController<CategoryDto, CategorySelectDto, Category, int>
 {
-    public PostsController(IRepository<Post> repository)
+    public CategoryController(IRepository<Category> repository)
             : base(repository)
-    {
+    {    
     }
 }
