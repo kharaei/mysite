@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Kharaei.Application;
 
 namespace Kharaei.Api.Controllers.v1;
   
@@ -10,7 +11,7 @@ public class LayoutController : BaseController
     [HttpGet] 
     public virtual IActionResult Get()
     { 
-        var model = new LayoutModel{
+        var model = new LayoutViewModel{
             Bio = "test...",
             Birthday = "1370/02/17",
             PostCount = 1,

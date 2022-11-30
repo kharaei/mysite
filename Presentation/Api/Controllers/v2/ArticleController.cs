@@ -8,9 +8,6 @@ namespace Kharaei.Api.Controllers.v2;
 [Route("api/v2/[controller]")]
 [ApiExplorerSettings(GroupName = "v2")] 
 public class ArticleController : v1.ArticleController
-{
-    public ArticleController(IRepository<Post> repository)
-            : base(repository)
-    {
-    }
+{ 
+    
 }

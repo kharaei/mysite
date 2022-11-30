@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Kharaei.Domain;
 
-public class Category : BaseEntity
+public class ArticleCategory : BaseEntity
     {
         [Required]
         [StringLength(50)]
@@ -13,7 +13,7 @@ public class Category : BaseEntity
         public int? ParentCategoryId { get; set; }
 
         [ForeignKey(nameof(ParentCategoryId))]
-        public Category ParentCategory { get; set; }
-        public ICollection<Category> ChildCategories { get; set; }
-        public ICollection<Post> Posts { get; set; }
+        public ArticleCategory ParentCategory { get; set; }
+        public ICollection<ArticleCategory> ChildCategories { get; set; }
+        public ICollection<Article> Articles { get; set; }
     }

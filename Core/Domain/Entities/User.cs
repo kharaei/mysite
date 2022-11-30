@@ -9,7 +9,7 @@ public class User : IdentityUser<int>, IEntity
     public required string FullName { get; set; } 
     public GenderType Gender { get; set; } 
 
-    public ICollection<Post>? Posts { get; set; }
+    public ICollection<Article>? Articles { get; set; }
 }
 
 
