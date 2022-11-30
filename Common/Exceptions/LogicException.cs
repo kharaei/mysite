@@ -1,6 +1,6 @@
-﻿using System;
+﻿
 
-namespace Kharaei.Application;
+namespace Kharaei.Common;
 
 public class LogicException : AppException
 {

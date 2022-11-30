@@ -1,6 +1,6 @@
 using System.Collections; 
 
-namespace Kharaei.Application;
+namespace Kharaei.Common;
 
 public static class AssertExtensions
     {

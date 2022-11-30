@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations; 
 using System.Reflection;
 
-namespace Kharaei.Application;
+namespace Kharaei.Common;
 
 public static class EnumExtensions
 {

@@ -1,5 +1,5 @@
 
-namespace Kharaei.Application;
+namespace Kharaei.Common;
 
 public static class StringExtensions
 {

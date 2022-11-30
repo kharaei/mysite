@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\Kharaei.Common.csproj" />
     <ProjectReference Include="..\Core\Domain\Kharaei.Domain.csproj" />
     <ProjectReference Include="..\Core\Application\Kharaei.Application.csproj" />
   </ItemGroup>

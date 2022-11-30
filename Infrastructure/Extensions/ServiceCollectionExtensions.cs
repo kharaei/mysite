@@ -12,6 +12,7 @@ using Kharaei.Application;
 using Kharaei.Domain;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
+using Kharaei.Common;
 
 namespace Kharaei.Infra;
 

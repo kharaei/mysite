@@ -1,11 +1,13 @@
-﻿using System.Net;
+﻿using System.Net; 
 
-namespace Kharaei.Application;
+namespace Kharaei.Common;
 
 public class AppException : Exception
 {
     public HttpStatusCode HttpStatusCode { get; set; }
+
     public ApiResultStatusCode ApiStatusCode { get; set; }
+
     public object AdditionalData { get; set; }
 
     public AppException()

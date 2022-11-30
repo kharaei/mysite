@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Logging;
 using Kharaei.Application;
+using Kharaei.Common;
 
 namespace Kharaei.Infra;
 

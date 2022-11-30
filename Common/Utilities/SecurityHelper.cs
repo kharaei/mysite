@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Kharaei.Application;
+namespace Kharaei.Common;
 
 public static class SecurityHelper
 {

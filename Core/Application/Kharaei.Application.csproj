@@ -8,12 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup> 
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Kharaei.Domain.csproj" />
+    <ProjectReference Include="..\..\Common\Kharaei.Common.csproj" />
   </ItemGroup>
 
 </Project>
