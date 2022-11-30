@@ -1,3 +1,4 @@
+using Kharaei.Infra.Ioc; 
 using Kharaei.Infra; 
 using Kharaei.Application;  
 using Microsoft.OpenApi.Models; 

@@ -1,5 +1,6 @@
 using Kharaei.Common;
 using Kharaei.Domain;
+using Kharaei.Application;
 using Microsoft.EntityFrameworkCore; 
 using System.Linq.Expressions;  
 
@@ -8,9 +9,9 @@ namespace Kharaei.Infra;
 public class Repository<TEntity> : IRepository<TEntity>
         where TEntity : class, IEntity
     {
-        protected readonly KharaeiDbContext DbContext;
-        public DbSet<TEntity> Entities { get; }
-        public virtual IQueryable<TEntity> Table => Entities;
+        protected readonly KharaeiDbContext DbContext; 
+        public DbSet<TEntity> Entities { get; } 
+        public virtual IQueryable<TEntity> Table => Entities; 
         public virtual IQueryable<TEntity> TableNoTracking => Entities.AsNoTracking();
 
         public Repository(KharaeiDbContext dbContext)

@@ -2,7 +2,7 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore; 
 using Kharaei.Common;
-using Kharaei.Infra;
+using Kharaei.Application;
 using AutoMapper;
 using Kharaei.Domain;
 

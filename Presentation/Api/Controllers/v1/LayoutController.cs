@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Kharaei.Api.Controllers.v1;
   
 [ApiVersion("1.0")] 
-[Route("v1/[controller]")]
+[Route("api/v1/[controller]")]
 [ApiExplorerSettings(GroupName = "v1")]
 public class LayoutController : BaseController
 { 

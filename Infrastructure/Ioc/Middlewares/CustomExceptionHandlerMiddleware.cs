@@ -4,11 +4,10 @@ using Newtonsoft.Json;
 using System.Net; 
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Logging;
-using Kharaei.Application;
+using Microsoft.Extensions.Logging; 
 using Kharaei.Common;
 
-namespace Kharaei.Infra;
+namespace Kharaei.Infra.Ioc;
 
 public static class CustomExceptionHandlerMiddlewareExtensions
     {

@@ -1,9 +1,8 @@
-using Kharaei.Domain;
-using Kharaei.Application;
+using Kharaei.Domain; 
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore; 
 
-namespace Kharaei.Infra;
+namespace Kharaei.Application;
 
 public interface IRepository<TEntity> where TEntity : class, IEntity
 {

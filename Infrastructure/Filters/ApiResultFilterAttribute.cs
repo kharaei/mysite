@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Kharaei.Application;
+using Microsoft.AspNetCore.Mvc.Filters; 
 using Kharaei.Common;
 
 namespace Kharaei.Infra;
