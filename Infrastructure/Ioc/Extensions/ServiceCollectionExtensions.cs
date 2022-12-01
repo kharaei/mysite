@@ -18,7 +18,8 @@ public static class ServiceCollectionExtensions
 {
     public static void AddCustomScops(this IServiceCollection services)
     {
-        services.AddTransient<IArticleCategoryService, ArticleCategoryService>();            
+        services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
+        services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
     }
 
     public static void AddDbContext(this IServiceCollection services, string strCon)
