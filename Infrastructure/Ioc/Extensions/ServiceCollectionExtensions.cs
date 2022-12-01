@@ -2,29 +2,30 @@ using System.Text;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore; 
-using Microsoft.IdentityModel.Tokens; 
-using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;  
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-//using Kharaei.Application;
-using Kharaei.Domain;
+using Microsoft.AspNetCore.Authentication.JwtBearer; 
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
-using Kharaei.Infra.Data;
 using Kharaei.Common;
+using Kharaei.Domain;
+using Kharaei.Application;
+using Kharaei.Infra.Data;
 
 namespace Kharaei.Infra.Ioc;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
+    public static void AddCustomScops(this IServiceCollection services)
+    {
+        services.AddTransient<IArticleCategoryService, ArticleCategoryService>();            
+    }
+
+    public static void AddDbContext(this IServiceCollection services, string strCon)
     {
         services.AddDbContext<KharaeiDbContext>(options =>
         {
-            options
-                .UseSqlServer(configuration.GetConnectionString("SqlServer"));
-                //Tips
-                //.ConfigureWarnings(warning => warning.Throw(RelationalEventId.QueryClientEvaluationWarning));
+            options.UseSqlServer(strCon); 
         });
     }
 
