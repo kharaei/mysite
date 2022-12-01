@@ -1,6 +1,4 @@
-using Kharaei.Infra.Ioc; 
-using Kharaei.Infra; 
-using Kharaei.Application;  
+using Kharaei.Infra.Ioc;   
 using Microsoft.OpenApi.Models; 
 
 var builder = WebApplication.CreateBuilder(args);

@@ -20,9 +20,10 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Ioc\Kharaei.Infra.Ioc.csproj" /> 
+    <ProjectReference Include="..\..\Infrastructure\Data\Kharaei.Infra.Data.csproj" /> 
     <ProjectReference Include="..\..\Common\Kharaei.Common.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\Kharaei.Infra.csproj" /> 
-    <ProjectReference Include="..\..\Core\Application\Kharaei.Application.csproj" />
+    <ProjectReference Include="..\..\Core\Application\Kharaei.Application.csproj" />    
   </ItemGroup>
 
 </Project>

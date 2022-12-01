@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Pluralize.NET;  
 using System.Reflection; 
 
-namespace Kharaei.Infra;
+namespace Kharaei.Infra.Data;
 
 public static class ModelBuilderExtensions
     {

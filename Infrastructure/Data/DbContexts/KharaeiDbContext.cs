@@ -2,9 +2,10 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore; 
 using Kharaei.Domain;
 using Kharaei.Common;
+//using Kharaei.Infra.Ioc;
 using System.Reflection;
 
-namespace Kharaei.Infra;
+namespace Kharaei.Infra.Data;
 
 public class KharaeiDbContext: IdentityDbContext<User, Role, int>
 {

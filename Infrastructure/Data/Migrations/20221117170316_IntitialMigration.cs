@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Kharaei.Infra.Migrations
+namespace Kharaei.Infra.Data.Migrations
 {
     /// <inheritdoc />
     public partial class IntitialMigration : Migration

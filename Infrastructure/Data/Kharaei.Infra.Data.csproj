@@ -6,9 +6,24 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="12.0.0" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" /> 
+  <ItemGroup> 
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" /> 
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Pluralize.NET" Version="1.0.2" /> 
   </ItemGroup> 
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Kharaei.Common.csproj" />
+    <ProjectReference Include="..\..\Core\Domain\Kharaei.Domain.csproj" />  
+    <ProjectReference Include="..\..\Core\Application\Kharaei.Application.csproj" />  
+    <!-- <ProjectReference Include="..\Ioc\Kharaei.Infra.Ioc.csproj" /> -->
+  </ItemGroup>
 
 </Project>

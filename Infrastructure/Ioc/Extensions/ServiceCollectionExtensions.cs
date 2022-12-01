@@ -1,20 +1,19 @@
-
 using System.Text;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-//using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore; 
 using Microsoft.IdentityModel.Tokens; 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Kharaei.Application;
+//using Kharaei.Application;
 using Kharaei.Domain;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
+using Kharaei.Infra.Data;
 using Kharaei.Common;
 
-namespace Kharaei.Infra;
+namespace Kharaei.Infra.Ioc;
 
 public static class ServiceCollectionExtensions
 {

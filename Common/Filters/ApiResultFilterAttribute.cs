@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters; 
-using Kharaei.Common;
+using Microsoft.AspNetCore.Mvc.Filters;  
 
-namespace Kharaei.Infra;
+namespace Kharaei.Common;
 
 public class ApiResultFilterAttribute : ActionFilterAttribute
 {
