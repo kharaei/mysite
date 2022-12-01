@@ -23,7 +23,6 @@
     <ProjectReference Include="..\..\Common\Kharaei.Common.csproj" />
     <ProjectReference Include="..\..\Core\Domain\Kharaei.Domain.csproj" />  
     <ProjectReference Include="..\..\Core\Application\Kharaei.Application.csproj" />  
-    <!-- <ProjectReference Include="..\Ioc\Kharaei.Infra.Ioc.csproj" /> -->
   </ItemGroup>
 
 </Project>

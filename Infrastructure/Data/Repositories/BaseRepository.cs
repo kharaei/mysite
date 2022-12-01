@@ -3,9 +3,17 @@ using Kharaei.Application;
 
 namespace Kharaei.Infra.Data;
 
-public class Repository<TEntity> : IRepository<TEntity>
+public class BaseRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IEntity
 {
+
+    private readonly KharaeiDbContext _dbcontext;
+
+    public BaseRepository(KharaeiDbContext context)
+    {
+        _dbcontext = context;
+    }
+    
     void IRepository<TEntity>.Delete(int id)
     {
         throw new NotImplementedException();
@@ -13,11 +21,11 @@ public class Repository<TEntity> : IRepository<TEntity>
 
     List<TEntity> IRepository<TEntity>.GetEntities()
     {
-        throw new NotImplementedException();
+            return _dbcontext.Set<TEntity>().ToList();
     }
 
     TEntity IRepository<TEntity>.GetEntity(int id)
     {
-        throw new NotImplementedException();
+            return _dbcontext.Find<TEntity>(id);
     }
 }
