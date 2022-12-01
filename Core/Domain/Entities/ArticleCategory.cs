@@ -9,7 +9,7 @@ public class ArticleCategory : BaseEntity
     {
         [Required]
         [StringLength(50)]
-        public string Name { get; set; }
+        public string Title { get; set; }
         public int? ParentCategoryId { get; set; }
 
         [ForeignKey(nameof(ParentCategoryId))]

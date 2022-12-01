@@ -3,29 +3,22 @@ using Kharaei.Application;
 
 namespace Kharaei.Infra.Data;
 
-public class BaseRepository<TEntity> : IRepository<TEntity>
-        where TEntity : class, IEntity
-{
-
+public class BaseRepository<TKey, TEntity> : IBaseRepository<TKey, TEntity> where TEntity : BaseEntity<TKey>
+{ 
     private readonly KharaeiDbContext _dbcontext;
 
     public BaseRepository(KharaeiDbContext context)
     {
         _dbcontext = context;
     }
-    
-    void IRepository<TEntity>.Delete(int id)
+      
+    public List<TEntity> GetEntities()
     {
-        throw new NotImplementedException();
+        return _dbcontext.Set<TEntity>().ToList();
     }
 
-    List<TEntity> IRepository<TEntity>.GetEntities()
+    public TEntity GetEntity(TKey id)
     {
-            return _dbcontext.Set<TEntity>().ToList();
-    }
-
-    TEntity IRepository<TEntity>.GetEntity(int id)
-    {
-            return _dbcontext.Find<TEntity>(id);
+        return _dbcontext.Find<TEntity>(id);
     }
 }

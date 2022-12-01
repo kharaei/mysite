@@ -3,7 +3,7 @@ using Kharaei.Application;
 
 namespace Kharaei.Infra.Data;
 
-public class ArticleRepository : BaseRepository<Article>, IArticleRepository
+public class ArticleRepository : BaseRepository<int, Article>, IArticleRepository
 {    
     private readonly KharaeiDbContext _context;
 
