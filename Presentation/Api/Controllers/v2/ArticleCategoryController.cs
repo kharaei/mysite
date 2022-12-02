@@ -2,9 +2,9 @@ using Kharaei.Application;
 using Kharaei.Common;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Kharaei.Api.Controllers.v1;
+namespace Kharaei.Api.Controllers.v2;
 
-[ApiVersion("1")]  
+[ApiVersion("2")]  
 public class ArticleCategoryController : BaseController
 {
     private readonly IArticleCategoryService  _articleCategoryService;
