@@ -10,13 +10,13 @@ using Microsoft.AspNetCore.Mvc;
 using Kharaei.Common;
 using Kharaei.Domain;
 using Kharaei.Application;
-using Kharaei.Infra.Data;
+using Kharaei.Infra.Data; 
 
 namespace Kharaei.Infra.Ioc;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddCustomScops(this IServiceCollection services)
+    public static void AddDependencies(this IServiceCollection services)
     {
         services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
         services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
@@ -150,12 +150,21 @@ public static class ServiceCollectionExtensions
 
     public static void AddCustomApiVersioning(this IServiceCollection services)
     {
+        services.AddEndpointsApiExplorer();
+
         services.AddApiVersioning(options =>
         { 
            options.AssumeDefaultVersionWhenUnspecified = true;
-           options.DefaultApiVersion = new ApiVersion(1, 0);  
-           options.ReportApiVersions = true;        
+           options.DefaultApiVersion = new ApiVersion(2, 0);
+           options.ReportApiVersions = true;
+        }); 
+
+        services.AddVersionedApiExplorer(options => 
+        {
+            options.GroupNameFormat = "'v'VVV";
+            options.SubstituteApiVersionInUrl = true;
         });   
+
     }
 
 }

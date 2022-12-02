@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Kharaei.Api.Controllers.v1;
 
-[ApiVersion("1.0")]
-[Route("api/v1/[controller]")]
-[ApiExplorerSettings(GroupName = "v1")]
+[ApiVersion("1")]  
 public class ArticleCategoryController : BaseController
 {
     private readonly IArticleCategoryService  _articleCategoryService;

@@ -1,35 +1,35 @@
-using Kharaei.Infra.Ioc;   
-using Microsoft.OpenApi.Models; 
-using Kharaei.Application;
+using Kharaei.Infra.Ioc;    
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 var builder = WebApplication.CreateBuilder(args);
- 
+SiteSettings _siteSetting = builder.Configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>();
+
 // Add services to the container.  
-builder.Services.AddCustomScops(); 
+builder.Services.AddDependencies(); 
 builder.Services.AddDbContext(builder.Configuration.GetConnectionString("SqlServer")); 
-builder.Services.AddCustomIdentity(builder.Configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>().IdentitySettings);
-builder.Services.AddJwtAuthentication(builder.Configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>().JwtSettings);
+builder.Services.AddCustomIdentity(_siteSetting.IdentitySettings);
+builder.Services.AddJwtAuthentication(_siteSetting.JwtSettings);
+builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 builder.Services.AddCustomApiVersioning();
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => {
-    options.SwaggerDoc("v1", new OpenApiInfo { Version = "v1", Title = "API V1" });
-    options.SwaggerDoc("v2", new OpenApiInfo { Version = "v2", Title = "API V2" });  
-});
-
+builder.Services.AddControllers(); 
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();  
- app.UseCustomExceptionHandler();
 
+app.UseCustomExceptionHandler();
+ 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseSwagger(); 
+    
+    var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
     app.UseSwaggerUI(options => {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
-        options.SwaggerEndpoint("/swagger/v2/swagger.json", "V2");
+        foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions.Reverse())
+        {
+            options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+                description.GroupName.ToUpperInvariant());
+        }
     }); 
 }
 
