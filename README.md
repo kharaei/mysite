@@ -16,8 +16,9 @@ this project is implemented using **Clean Architecture**.
 
 2. The following items will implement:
    - JWT Authentication
-   - AutoMapper
    - Logger (NLoger)
+   - AutoMapper
+   - RESTful
 
 ## :star: Presentation Layer Includes: 
 1. Api v1.0
