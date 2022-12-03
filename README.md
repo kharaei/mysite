@@ -1,17 +1,23 @@
 # Practical Project with .Net 7
-this project is sample for ....
+hi, my name is reza kharaei. i'm dot net developer and this project is for practice. I'll implement here what I learned.
 
-## Used cases! :star:
+## :star: Implemented Architecture:
+This project is implemented using Clean Architecture.
+
+## :star: Implemented Items:
+The following items were practice in this project:
+- Layering
 - Api Versioning
 - Dependency Injection
 - Jwt
 
-## Api v1.0
-1. Layout: Get Layout Information (set values in code!)
-2. Articles: Get: ...
+## :star: Presentation Layer (Api) Includes: 
+1. Api v1.0
+- Layout: Get Layout Information (set values in code!)
+- Articles: Get: ...
 
-## Api v2.0
-1. Layout: Get Layout Information (set values from appsetting file)
-2. ArticlesCategory
-3. Article
-3. User
+2. Api v2.0
+- Layout: Get Layout Information (set values from appsetting file)
+- ArticlesCategory
+- Article
+- User
