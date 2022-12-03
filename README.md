@@ -15,9 +15,9 @@ this project is implemented using **Clean Architecture**.
    - Swagger Documentation
 
 2. The following items will implement:
-- JWT Authentication
-- AutoMapper
-- Logger (NLoger)
+   - JWT Authentication
+   - AutoMapper
+   - Logger (NLoger)
 
 ## :star: Presentation Layer Includes: 
 1. Api v1.0
