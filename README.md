@@ -4,11 +4,20 @@ this project is for practice and I'll implement here what I learned.
 this project is implemented using **Clean Architecture**.
 
 ## :star: Implemented Items:
-The following items were practice in this project:
-- Layering
-- Implemented 
-- Api Versioning
-- Jwt
+1. The following items were implemented:
+   - Layering & Architecture
+   - Standard Api Result 
+   - Exception Handling 
+   - Automatic Validation
+   - Dependency Injection
+   - Api Versioning
+   - EFCore & Identity
+   - Swagger Documentation
+
+2. The following items will implement:
+- JWT Authentication
+- AutoMapper
+- Logger (NLoger)
 
 ## :star: Presentation Layer Includes: 
 1. Api v1.0
