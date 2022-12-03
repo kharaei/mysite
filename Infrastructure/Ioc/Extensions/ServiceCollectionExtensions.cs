@@ -11,27 +11,30 @@ using Kharaei.Common;
 using Kharaei.Domain;
 using Kharaei.Application;
 using Kharaei.Infra.Data; 
+using Microsoft.Extensions.Configuration;
 
 namespace Kharaei.Infra.Ioc;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddDependencies(this IServiceCollection services)
+    public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
     {
+        services.Configure<SiteSettings>(configuration.GetSection(nameof(SiteSettings)));
         services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
         services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
     }
 
-    public static void AddDbContext(this IServiceCollection services, string strCon)
+    public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<KharaeiDbContext>(options =>
         {
-            options.UseSqlServer(strCon); 
+            options.UseSqlServer(configuration.GetConnectionString("SqlServer")); 
         });
     }
 
-    public static void AddCustomIdentity(this IServiceCollection services, IdentitySettings settings)
+    public static void AddCustomIdentity(this IServiceCollection services, IConfiguration configuration)
     {
+        var settings = configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>().IdentitySettings;
         services.AddIdentity<User, Role>(identityOptions =>
         {
             //Password Settings
@@ -57,8 +60,9 @@ public static class ServiceCollectionExtensions
         .AddDefaultTokenProviders();
     }
    
-    public static void AddJwtAuthentication(this IServiceCollection services, JwtSettings jwtSettings)
+    public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
+        var settings = configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>().JwtSettings;
         services.AddAuthentication(options =>
         {
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -66,8 +70,8 @@ public static class ServiceCollectionExtensions
             options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
         }).AddJwtBearer(options =>
         {
-            var secretkey = Encoding.UTF8.GetBytes(jwtSettings.SecretKey);
-            var encryptionkey = Encoding.UTF8.GetBytes(jwtSettings.Encryptkey);
+            var secretkey = Encoding.UTF8.GetBytes(settings.SecretKey);
+            var encryptionkey = Encoding.UTF8.GetBytes(settings.Encryptkey);
 
             var validationParameters = new TokenValidationParameters
             {
@@ -81,10 +85,10 @@ public static class ServiceCollectionExtensions
                 ValidateLifetime = true,
 
                 ValidateAudience = true, //default : false
-                ValidAudience = jwtSettings.Audience,
+                ValidAudience = settings.Audience,
 
                 ValidateIssuer = true, //default : false
-                ValidIssuer = jwtSettings.Issuer,
+                ValidIssuer = settings.Issuer,
 
                 TokenDecryptionKey = new SymmetricSecurityKey(encryptionkey)
             };

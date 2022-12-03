@@ -1,14 +1,13 @@
 using Kharaei.Infra.Ioc;    
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.ApiExplorer; 
 
 var builder = WebApplication.CreateBuilder(args);
-SiteSettings _siteSetting = builder.Configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>();
 
 // Add services to the container.  
-builder.Services.AddDependencies(); 
-builder.Services.AddDbContext(builder.Configuration.GetConnectionString("SqlServer")); 
-builder.Services.AddCustomIdentity(_siteSetting.IdentitySettings);
-builder.Services.AddJwtAuthentication(_siteSetting.JwtSettings);
+builder.Services.AddDependencies(builder.Configuration); 
+builder.Services.AddDbContext(builder.Configuration);  
+builder.Services.AddCustomIdentity(builder.Configuration);
+builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 builder.Services.AddCustomApiVersioning();
 builder.Services.AddControllers(); 

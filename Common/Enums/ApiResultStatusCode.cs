@@ -4,24 +4,24 @@ namespace Kharaei.Common;
 
  public enum ApiResultStatusCode
     {
-        [Display(Name = "عملیات با موفقیت انجام شد")]
+        [Display(Name = "LogicError")]
+        LogicError = 100,
+
+        [Display(Name = "Done")]
         Success = 200,
 
-        [Display(Name = "خطایی در سرور رخ داده است")]
-        ServerError = 500,
-
-        [Display(Name = "پارامتر های ارسالی معتبر نیستند")]
+        [Display(Name = "BadRequest")]
         BadRequest = 400,
 
-        [Display(Name = "یافت نشد")]
+        [Display(Name = "Unauthorized")]
+        UnAuthorized = 401,
+
+        [Display(Name = "Forbidden")]
+        Forbidden = 403, 
+
+        [Display(Name = "NotFound")]
         NotFound = 404,
 
-        [Display(Name = "لیست خالی است")]
-        ListEmpty = 401,
-
-        [Display(Name = "خطایی در پردازش رخ داد")]
-        LogicError = 0,
-
-        [Display(Name = "خطای احراز هویت")]
-        UnAuthorized = 401
+        [Display(Name = "ServerError")]
+        ServerError = 500
     }

@@ -1,3 +1,4 @@
+using Kharaei.Application;
 
 namespace Kharaei.Infra.Ioc;
 
@@ -5,6 +6,7 @@ public class SiteSettings
 { 
     public JwtSettings JwtSettings { get; set; }
     public IdentitySettings IdentitySettings { get; set; }
+    public LayoutInformationSettings LayoutInformationSettings { get; set; }
 }
 
 public class IdentitySettings
@@ -25,4 +27,9 @@ public class JwtSettings
     public string Audience { get; set; }
     public int NotBeforeMinutes { get; set; }
     public int ExpirationMinutes { get; set; }
+}
+
+public class LayoutInformationSettings : LayoutViewModel
+{
+    
 }

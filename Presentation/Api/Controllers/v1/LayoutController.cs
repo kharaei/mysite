@@ -8,18 +8,17 @@ public class LayoutController : BaseController
 { 
     [HttpGet] 
     public virtual IActionResult Get()
-    { 
-        var model = new LayoutViewModel{
-            Bio = "test...",
+    {  
+        return Ok(new LayoutViewModel{
+            SiteTitle = "یادداشت‌های رضا خارائی",
+            Picture = "https://kharaei.platolms.ir/schools/kharaei/avatars/rezakharaei.jpg",
+            Bio = "<p>خوندن این یادداشت‌ها (بعد از گذشتِ چند وقت) بهم کمک می‌کنه تا مسیری که طی کردم رو ببینم و تصمیم‌های بهتری توی آینده بگیرم.</p>",
             Birthday = "1370/02/17",
             PostCount = 1,
-            SiteTitle = "Reza Blog",
             SubscriptionCount = 5,
-            Instagram = "#",
-            Linkedin = "#",
-            Picture = "https://kharaei.platolms.ir/schools/kharaei/avatars/rezakharaei.jpg",
-            Twitter = "#"
-        };
-        return Ok(model);
+            Instagram = "https://www.instagram.com/reza.kharaei",
+            Linkedin = "https://www.linkedin.com/in/kharaei",
+            Twitter = "https://twitter.com/rezakharaei"
+        });
     }
 }
