@@ -1,14 +1,13 @@
 # Practical Project with .Net 7
-hi, my name is reza kharaei. i'm dot net developer and this project is for practice. I'll implement here what I learned.
+hi, my name is reza. i'm dot net developer.
+this project is for practice and I'll implement here what I learned. 
+this project is implemented using Clean Architecture.
 
-## :star: Implemented Architecture:
-This project is implemented using Clean Architecture.
-
-## :star: Implemented Items:
+## Implemented Items:
 The following items were practice in this project:
 - Layering
+- Implemented 
 - Api Versioning
-- Dependency Injection
 - Jwt
 
 ## :star: Presentation Layer (Api) Includes: 
