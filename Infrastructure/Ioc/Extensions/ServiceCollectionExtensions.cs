@@ -20,6 +20,8 @@ public static class ServiceCollectionExtensions
     public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<SiteSettings>(configuration.GetSection(nameof(SiteSettings)));
+        services.AddTransient<IArticleService, ArticleService>();
+        services.AddTransient<IArticleRepository, ArticleRepository>();
         services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
         services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
     }

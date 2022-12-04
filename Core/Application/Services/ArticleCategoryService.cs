@@ -10,7 +10,7 @@ public class ArticleCategoryService : IArticleCategoryService
         _repository = repository;
     }
 
-    public List<ArticleCategoryDto> GetAll()
+    public List<ArticleCategoryDto> GetList()
     {
         var articlecategories = _repository.GetEntities();
         return articlecategories.Select(articleCategory => new ArticleCategoryDto

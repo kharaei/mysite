@@ -3,5 +3,5 @@ namespace  Kharaei.Application;
 
 public interface IArticleCategoryService
 {
-    List<ArticleCategoryDto> GetAll();
+    List<ArticleCategoryDto> GetList();
 }

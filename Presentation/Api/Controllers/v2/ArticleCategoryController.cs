@@ -17,7 +17,7 @@ public class ArticleCategoryController : BaseController
     [HttpGet]
     public ApiResult<List<ArticleCategoryDto>> Get()
     {
-        return _articleCategoryService.GetAll();
+        return _articleCategoryService.GetList();
     }
 
     // [HttpGet("{id:guid}")]
