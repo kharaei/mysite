@@ -20,4 +20,10 @@ public class ArticleController: BaseController
     {  
         return _articleService.GetList();
     }
+
+    [HttpGet("{id:int}")]
+    public virtual ApiResult<ArticleDto> Get(int id)
+    {  
+        return _articleService.GetDetails(id);
+    }
 }

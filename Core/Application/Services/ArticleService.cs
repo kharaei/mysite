@@ -20,4 +20,14 @@ public class ArticleService : IArticleService
             PublishDateTime = article.PublishDateTime
         }).OrderByDescending(x => x.Id).ToList();
     }
+
+    public ArticleDto GetDetails(int id)
+    {
+        var article = _repository.GetEntity(id);        
+        return new ArticleDto{
+            Id  = article.Id,
+            Title = article.Title,
+            PublishDateTime = article.PublishDateTime
+        };
+    }
 }
