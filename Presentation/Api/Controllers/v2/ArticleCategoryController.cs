@@ -26,4 +26,11 @@ public class ArticleCategoryController : BaseController
         return _articleCategoryService.Entity(id);
     }
 
+    [HttpPost]
+    public ApiResult Post(ArticleCategoryDto entity)
+    {
+        _articleCategoryService.Add(entity);
+        return Ok();
+    }
+
 }

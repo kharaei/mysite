@@ -25,6 +25,7 @@ public class BaseRepository<TKey, TEntity> : IBaseRepository<TKey, TEntity> wher
     public void InsertEntity(TEntity entiry)
     {
         _dbcontext.Add(entiry);
+        _dbcontext.SaveChanges();
         return;
     }
 }
