@@ -5,14 +5,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+ 
   <ItemGroup> 
-    <!-- <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0" /> -->
-  </ItemGroup> 
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" /> 
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="7.0.0" /> 
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />  
+  </ItemGroup>
 
   <ItemGroup> 
     <ProjectReference Include="..\Domain\Kharaei.Domain.csproj" />
     <ProjectReference Include="..\..\Common\Kharaei.Common.csproj" />
-  </ItemGroup>
-
+  </ItemGroup> 
+ 
 </Project>

@@ -1,17 +1,37 @@
 
+using Kharaei.Common;
+using Kharaei.Domain;
+using Microsoft.AspNetCore.Identity;
+
 namespace Kharaei.Application;
 
 public class UserService : IUserService
-{
-    private readonly IArticleRepository _repository;
+{  
+    private readonly IUserRepository _userRepository;
 
-    public UserService(IArticleRepository repository)
+    public UserService(IUserRepository userRepository)
     {
-        _repository = repository;
+        _userRepository = userRepository;
     }
 
-    public bool Login(string username, string password)
+    public List<UserDto> Entities()
     {
-        return false;
+        var users = _userRepository.GetEntities();
+        return users.Select(user => new UserDto
+        {
+            Id = user.Id, 
+            Username = user.UserName,  
+            Gender = user.Gender.ToString()
+        }).OrderByDescending(x => x.Id).ToList();
     }
+
+    public UserDto Entity(int id)
+    {
+        var user = _userRepository.GetEntity(id);        
+        return new UserDto{
+            Id  = user.Id,
+            Username = user.UserName,
+            Gender = user.Gender.ToString()
+        };
+    } 
 }

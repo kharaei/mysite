@@ -1,4 +1,4 @@
-# Practical Project with .Net 7
+# Practical WebApi Project with .Net7
 hi, my name is reza. i'm dot net developer.
 this project is for practice and I'll implement here what I learned. 
 this project is implemented using **Clean Architecture**.
@@ -6,12 +6,14 @@ this project is implemented using **Clean Architecture**.
 ## :star: Implemented Items:
 1. The following items were implemented:
    - Layering & Architecture
-   - Standard Api Result 
-   - Exception Handling 
-   - Automatic Validation
+   - Standardization
+      - Standard Api Result 
+      - Exception Handling 
+      - Automatic Validation
+   - EFCore
+   - Identity
    - Dependency Injection
    - Api Versioning
-   - EFCore & Identity
    - Swagger Documentation
 
 2. The following items will implement:

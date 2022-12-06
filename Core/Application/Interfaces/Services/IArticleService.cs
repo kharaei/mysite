@@ -1,8 +1,6 @@
 
 namespace  Kharaei.Application;
 
-public interface IArticleService
+public interface IArticleService: IBaseService<ArticleDto>
 { 
-    List<ArticleDto> GetList();
-    ArticleDto GetDetails(int id);
 }

@@ -6,14 +6,14 @@ using Kharaei.Application;
 namespace Kharaei.Api.Controllers.v2;
 
 [ApiVersion("2")]
-public class LayoutController : BaseController
+public class LayoutController: v1.LayoutController
 {
     private readonly IOptions<SiteSettings> _siteSetting;
 
     public LayoutController(IOptions<SiteSettings> SiteSettings) => _siteSetting = SiteSettings;
 
     [HttpGet]
-    public IActionResult Get()
+    public override IActionResult Get()
     {
         var model = new LayoutViewModel {
             SiteTitle =_siteSetting.Value.LayoutInformationSettings.SiteTitle,

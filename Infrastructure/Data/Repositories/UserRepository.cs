@@ -5,21 +5,21 @@ namespace Kharaei.Infra.Data;
 
 public class UserRepository:  IUserRepository
 {
-    private readonly KharaeiDbContext _context;
+    private readonly KharaeiDbContext _dbcontext;
 
-    public UserRepository(KharaeiDbContext context)
+    public UserRepository(KharaeiDbContext dbcontext)
     {
-        _context = context;
+        _dbcontext = dbcontext;
     }
 
-    List<User> IUserRepository.GetEntities()
+    public List<User> GetEntities()
     {
-        throw new NotImplementedException();
+        return _dbcontext.Set<User>().ToList();
     }
 
-    User IUserRepository.GetEntity(int id)
+    public User GetEntity(int id)
     {
-        throw new NotImplementedException();
+        return _dbcontext.Find<User>(id);
     }
 
 }

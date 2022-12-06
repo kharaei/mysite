@@ -23,7 +23,10 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IArticleService, ArticleService>();
         services.AddTransient<IArticleRepository, ArticleRepository>();
         services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
-        services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
+        services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>(); 
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IJwtService, JwtService>();
     }
 
     public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)

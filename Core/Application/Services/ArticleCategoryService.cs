@@ -3,20 +3,29 @@ namespace Kharaei.Application;
 
 public class ArticleCategoryService : IArticleCategoryService
 {
-    private readonly IArticleCategoryRepository _repository;
+    private readonly IArticleCategoryRepository _articleCategoryRepository;
 
-    public ArticleCategoryService(IArticleCategoryRepository repository)
+    public ArticleCategoryService(IArticleCategoryRepository articleCategoryRepository)
     {
-        _repository = repository;
+        _articleCategoryRepository = articleCategoryRepository;
     }
 
-    public List<ArticleCategoryDto> GetList()
+    public List<ArticleCategoryDto> Entities()
     {
-        var articlecategories = _repository.GetEntities();
+        var articlecategories = _articleCategoryRepository.GetEntities();
         return articlecategories.Select(articleCategory => new ArticleCategoryDto
         {
             Id = articleCategory.Id, 
             Title = articleCategory.Title,  
         }).OrderByDescending(x => x.Id).ToList();
+    }
+    
+    public ArticleCategoryDto Entity(int id)
+    {
+        var articleCategory = _articleCategoryRepository.GetEntity(id);        
+        return new ArticleCategoryDto{
+            Id  = articleCategory.Id,
+            Title = articleCategory.Title            
+        };
     }
 }

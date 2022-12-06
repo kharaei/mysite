@@ -1,6 +1,5 @@
-using Kharaei.Application;
 
-namespace Kharaei.Infra.Ioc;
+namespace Kharaei.Application;
 
 public class SiteSettings
 { 

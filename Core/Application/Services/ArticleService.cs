@@ -3,16 +3,16 @@ namespace Kharaei.Application;
 
 public class ArticleService : IArticleService
 {
-    private readonly IArticleRepository _repository;
+    private readonly IArticleRepository _articleRepository;
 
-    public ArticleService(IArticleRepository repository)
+    public ArticleService(IArticleRepository articleRepository)
     {
-        _repository = repository;
+        _articleRepository = articleRepository;
     }
 
-    public List<ArticleDto> GetList()
+    public List<ArticleDto> Entities()
     {
-        var articles = _repository.GetEntities();
+        var articles = _articleRepository.GetEntities();
         return articles.Select(article => new ArticleDto
         {
             Id = article.Id, 
@@ -21,9 +21,9 @@ public class ArticleService : IArticleService
         }).OrderByDescending(x => x.Id).ToList();
     }
 
-    public ArticleDto GetDetails(int id)
+    public ArticleDto Entity(int id)
     {
-        var article = _repository.GetEntity(id);        
+        var article = _articleRepository.GetEntity(id);        
         return new ArticleDto{
             Id  = article.Id,
             Title = article.Title,

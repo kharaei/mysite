@@ -17,13 +17,13 @@ public class ArticleCategoryController : BaseController
     [HttpGet]
     public ApiResult<List<ArticleCategoryDto>> Get()
     {
-        return _articleCategoryService.GetList();
+        return _articleCategoryService.Entities();
     }
 
-    // [HttpGet("{id:guid}")]
-    // public  ApiResult<ArticleCategoryDto> Get(int id)
-    // { 
-    //     return _articleCategoryService.get();
-    // }
+    [HttpGet("{id:int}")]
+    public  ApiResult<ArticleCategoryDto> Get(int id)
+    {
+        return _articleCategoryService.Entity(id);
+    }
 
 }

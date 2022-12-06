@@ -1,7 +1,6 @@
 
 namespace  Kharaei.Application;
 
-public interface IArticleCategoryService
-{
-    List<ArticleCategoryDto> GetList();
+public interface IArticleCategoryService: IBaseService<ArticleCategoryDto>
+{    
 }
