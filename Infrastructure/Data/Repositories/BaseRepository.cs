@@ -21,4 +21,10 @@ public class BaseRepository<TKey, TEntity> : IBaseRepository<TKey, TEntity> wher
     {
         return _dbcontext.Find<TEntity>(id);
     }
+
+    public void InsertEntity(TEntity entiry)
+    {
+        _dbcontext.Add(entiry);
+        return;
+    }
 }

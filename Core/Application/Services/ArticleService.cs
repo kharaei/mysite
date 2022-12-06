@@ -1,4 +1,6 @@
 
+using Kharaei.Domain;
+
 namespace Kharaei.Application;
 
 public class ArticleService : IArticleService
@@ -30,4 +32,15 @@ public class ArticleService : IArticleService
             PublishDateTime = article.PublishDateTime
         };
     }
+    public void Add(ArticleDto entity)
+    {
+        Article newRecord = new Article{
+            Title = entity.Title,
+            CategoryId = 1,
+            AuthorId = 1,
+            Text=entity.Text
+        };
+        _articleRepository.InsertEntity(newRecord);
+        return;
+    } 
 }

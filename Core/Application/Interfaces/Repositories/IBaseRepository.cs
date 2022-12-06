@@ -4,9 +4,9 @@ namespace Kharaei.Application;
 
 public interface IBaseRepository<in TKey, TEntity> where TEntity : BaseEntity<TKey>
 { 
-    TEntity GetEntity(TKey id);
     List<TEntity> GetEntities(); 
-    //void Create(TEntity entity);
-    //void Update(TEntity entity);
-    //void Delete(int id);
+    TEntity GetEntity(TKey id);
+    void InsertEntity(TEntity entity);
+    //void UpdateEntity(TEntity entity);
+    //void DeleteEntity(int id);
 }

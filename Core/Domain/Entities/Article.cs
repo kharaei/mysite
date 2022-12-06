@@ -5,12 +5,12 @@ namespace Kharaei.Domain;
 
 public class Article: BaseEntity<int>
 {    
-    public string Title { get; private set; } 
-    public string Image { get; private set; }
-    public string Text { get; private set; }
-    public string PublishDateTime { get; private set; }    
-    public int CategoryId { get; private set; }
-    public int AuthorId { get; private set; } 
+    public string Title { get; set; } 
+    public string Image { get; set; }
+    public string Text { get; set; }
+    public string PublishDateTime { get; set; }    
+    public int CategoryId { get; set; }
+    public int AuthorId { get; set; } 
     public ArticleCategory Category { get; set; }
     public User Author { get; set; }
 }

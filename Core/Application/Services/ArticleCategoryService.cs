@@ -1,4 +1,6 @@
 
+using Kharaei.Domain;
+
 namespace Kharaei.Application;
 
 public class ArticleCategoryService : IArticleCategoryService
@@ -28,4 +30,14 @@ public class ArticleCategoryService : IArticleCategoryService
             Title = articleCategory.Title            
         };
     }
+
+    public void Add(ArticleCategoryDto entity)
+    {
+        ArticleCategory newRecord = new ArticleCategory{
+            Title = entity.Title,
+            ParentCategoryId = 0
+        };
+        _articleCategoryRepository.InsertEntity(newRecord);
+        return;
+    } 
 }
