@@ -8,13 +8,33 @@ namespace Kharaei.Api;
 [ApiController] 
 [ApiResultFilter] 
 public class CrudController<TDto, TEntity, TKey> : BaseController
-        where TDto : BaseDto<TDto, TEntity, TKey>, new() 
-        where TEntity : BaseEntity<TKey>, new()
-{ 
-    // private readonly IBaseRepository<int, TEntity> _repository;
+        where TDto: IDto, new() 
+        where TEntity: IEntity, new()
+        
+{
+    private readonly IBaseService<TDto, TEntity, int> _service;
     
-    // public CrudController(IBaseRepository<int, TEntity> repository)
+    public CrudController(IBaseService<TDto, TEntity, int> service)
+    {
+        _service = service;
+    }
+ 
+    [HttpGet]
+    public ApiResult<List<TDto>> Get()
+    {
+        return _service.GetAll();
+    }
+
+    // [HttpGet("{id}")]
+    // public ApiResult<TDto> Get(TKey id)
     // {
-    //     _repository = repository;
+    //     return _service.GetById(id);
     // }
+
+    [HttpPost]
+    public ApiResult Post(TDto entity)
+    {
+        _service.Add(entity);
+        return Ok();
+    }
 }

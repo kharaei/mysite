@@ -1,36 +1,17 @@
 using Kharaei.Application;
-using Kharaei.Common;
+using Kharaei.Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kharaei.Api.Controllers.v2;
 
 [ApiVersion("2")]  
-public class ArticleCategoryController : BaseController
+public class ArticleCategoryController : CrudController<ArticleCategoryDto, ArticleCategory, int>
 {
-    private readonly IArticleCategoryService  _articleCategoryService;
+    private readonly IBaseService<ArticleCategoryDto, ArticleCategory, int>  _articleCategoryService;
 
-    public ArticleCategoryController(IArticleCategoryService articleCategoryService)
+    public ArticleCategoryController(IBaseService<ArticleCategoryDto, ArticleCategory, int> articleCategoryService): base(articleCategoryService)
     {
         _articleCategoryService = articleCategoryService;
     }
-
-    [HttpGet]
-    public ApiResult<List<ArticleCategoryDto>> Get()
-    {
-        return _articleCategoryService.GetAll();
-    }
-
-    [HttpGet("{id:int}")]
-    public  ApiResult<ArticleCategoryDto> Get(int id)
-    {
-        return _articleCategoryService.GetById(id);
-    }
-
-    [HttpPost]
-    public ApiResult Post(ArticleCategoryDto entity)
-    {
-        _articleCategoryService.Add(entity);
-        return Ok();
-    }
-
+ 
 }

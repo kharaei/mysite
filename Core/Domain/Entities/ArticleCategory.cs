@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Kharaei.Domain;
 
-public class ArticleCategory : BaseEntity
+public class ArticleCategory : BaseEntity<int>
     {
         [Required]
         [StringLength(50)]

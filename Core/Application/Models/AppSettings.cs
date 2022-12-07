@@ -28,7 +28,7 @@ public class JwtSettings
     public int ExpirationMinutes { get; set; }
 }
 
-public class LayoutInformationSettings : LayoutViewModel
+public class LayoutInformationSettings : LayoutDto
 {
     
 }

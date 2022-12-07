@@ -21,9 +21,9 @@ public class ArticleController: v1.ArticleController
         return base.Get();
     }
 
-    [HttpGet("{id:int}")]
-    public override ApiResult<ArticleDto> Get(int id)
-    {  
-        return base.Get(id);
-    }
+    // [HttpGet("{id:int}")]
+    // public override ApiResult<ArticleDto> Get(int id)
+    // {  
+    //     return base.Get(id);
+    // }
 }

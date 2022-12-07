@@ -21,9 +21,9 @@ public class ArticleController: BaseController
         return _articleService.GetAll();
     }
 
-    [HttpGet("{id:int}")]
-    public virtual ApiResult<ArticleDto> Get(int id)
-    {  
-        return _articleService.GetById(id);
-    }
+    // [HttpGet("{id:int}")]
+    // public virtual ApiResult<ArticleDto> Get(int id)
+    // {  
+    //     return _articleService.GetById(id);
+    // }
 }

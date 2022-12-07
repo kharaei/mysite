@@ -1,4 +1,3 @@
-
 using Kharaei.Common;
 using Kharaei.Domain;
 using Microsoft.AspNetCore.Identity;
@@ -7,9 +6,9 @@ namespace Kharaei.Application;
 
 public class UserService : IUserService
 {  
+    private readonly IUserRepository _userRepository;
     private readonly UserManager<User> _userManager;
     private readonly IJwtService _jwtService;
-    private readonly IUserRepository _userRepository;
 
     public UserService(IUserRepository userRepository, IJwtService jwtService, UserManager<User> userManager)
     {
@@ -22,18 +21,16 @@ public class UserService : IUserService
     { 
         var users = _userRepository.GetEntities();
         return users.Select(user => new UserDto
-        {
-            Id = user.Id, 
+        { 
             Username = user.UserName,  
             Gender = user.Gender.ToString()
-        }).OrderByDescending(x => x.Id).ToList();
+        }).ToList();
     }
 
     public UserDto GetById(int id)
     {
         var user = _userRepository.GetEntity(id);        
-        return new UserDto{
-            Id  = user.Id,
+        return new UserDto{ 
             Username = user.UserName,
             Gender = user.Gender.ToString()
         };

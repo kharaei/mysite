@@ -2,9 +2,7 @@ using Kharaei.Domain;
 
 namespace Kharaei.Application;
 
-public class ArticleCategoryDto
-{
-    public int Id { get; set; }
-    public string Title { get; set; }   
-    //public string ParentCategory { get; set; }    
+public class ArticleCategoryDto: BaseDto<int>, IDto
+{ 
+    public string Title { get; set; }    
 } 

@@ -15,7 +15,7 @@ public class LayoutController: v1.LayoutController
     [HttpGet]
     public override IActionResult Get()
     {
-        var model = new LayoutViewModel {
+        var model = new LayoutDto {
             SiteTitle =_siteSetting.Value.LayoutInformationSettings.SiteTitle,
             Picture = _siteSetting.Value.LayoutInformationSettings.Picture,
             Bio = _siteSetting.Value.LayoutInformationSettings.Bio,

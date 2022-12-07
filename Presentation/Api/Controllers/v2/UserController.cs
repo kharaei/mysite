@@ -26,7 +26,7 @@ public class UserController : BaseController
         return _userService.GetById(id);
     }
 
-    [HttpGet("Login")] 
+    [HttpPost("Login")] 
     public async Task<ApiResult<string>> Login(string username, string password)
     {        
         return await _userService.GenerateToken(username, password);

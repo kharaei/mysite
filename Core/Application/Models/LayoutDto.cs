@@ -1,7 +1,7 @@
 
 namespace Kharaei.Application;
 
-public class LayoutViewModel{
+public class LayoutDto {
     public string SiteTitle { get; set; }
     public int PostCount { get; set; }
     public int SubscriptionCount { get; set; }
