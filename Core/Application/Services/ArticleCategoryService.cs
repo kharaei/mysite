@@ -12,7 +12,7 @@ public class ArticleCategoryService : IArticleCategoryService
         _articleCategoryRepository = articleCategoryRepository;
     }
 
-    public List<ArticleCategoryDto> Entities()
+    public List<ArticleCategoryDto> GetAll()
     {
         var articlecategories = _articleCategoryRepository.GetEntities();
         return articlecategories.Select(articleCategory => new ArticleCategoryDto
@@ -22,7 +22,7 @@ public class ArticleCategoryService : IArticleCategoryService
         }).OrderByDescending(x => x.Id).ToList();
     }
     
-    public ArticleCategoryDto Entity(int id)
+    public ArticleCategoryDto GetById(int id)
     {
         var articleCategory = _articleCategoryRepository.GetEntity(id);        
         return new ArticleCategoryDto{
@@ -31,13 +31,27 @@ public class ArticleCategoryService : IArticleCategoryService
         };
     }
 
-    public void Add(ArticleCategoryDto entity)
+    public List<ArticleCategoryDto> GetByTitle(string Title)
     {
+        var articleCategories = _articleCategoryRepository.GetEntities(Title);        
+        var results = new List<ArticleCategoryDto>();
+        foreach (var item in articleCategories)
+        {
+            results.Add(new ArticleCategoryDto{
+            Id  = item.Id,
+            Title = item.Title            
+            });
+        }
+        return results;
+    }
+
+    public void Add(ArticleCategoryDto entity)
+    {    
         ArticleCategory newRecord = new ArticleCategory{
             Title = entity.Title,
             ParentCategoryId = 0
         };
-        _articleCategoryRepository.InsertEntity(newRecord);
+        _articleCategoryRepository.InsertEntity(newRecord);        
         return;
     } 
 }

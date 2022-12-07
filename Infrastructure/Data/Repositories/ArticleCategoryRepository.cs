@@ -5,10 +5,15 @@ namespace Kharaei.Infra.Data;
 
 public class ArticleCategoryRepository: BaseRepository<int, ArticleCategory>, IArticleCategoryRepository
 {  
-    private readonly KharaeiDbContext _context;
+    private readonly KharaeiDbContext _dbcontext;
 
-    public ArticleCategoryRepository(KharaeiDbContext context) : base(context)
+    public ArticleCategoryRepository(KharaeiDbContext dbcontext) : base(dbcontext)
     {
-        _context = context;
+        _dbcontext = dbcontext;
+    }
+    
+    public List<ArticleCategory> GetEntities(string title)
+    {
+        return _dbcontext.Set<ArticleCategory>().Where(x => x.Title.Contains(title)).ToList();
     }
 }

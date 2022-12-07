@@ -1,10 +1,10 @@
-using Kharaei.Domain; 
+using Kharaei.Domain;  
 
 namespace Kharaei.Application;
 
 public interface IBaseRepository<in TKey, TEntity> where TEntity : BaseEntity<TKey>
 { 
-    List<TEntity> GetEntities(); 
+    List<TEntity> GetEntities();  
     TEntity GetEntity(TKey id);
     void InsertEntity(TEntity entity);
     //void UpdateEntity(TEntity entity);

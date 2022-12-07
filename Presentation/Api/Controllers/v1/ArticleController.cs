@@ -18,12 +18,12 @@ public class ArticleController: BaseController
     [HttpGet] 
     public virtual ApiResult<List<ArticleDto>> Get()
     {  
-        return _articleService.Entities();
+        return _articleService.GetAll();
     }
 
     [HttpGet("{id:int}")]
     public virtual ApiResult<ArticleDto> Get(int id)
     {  
-        return _articleService.Entity(id);
+        return _articleService.GetById(id);
     }
 }
