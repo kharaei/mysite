@@ -2,7 +2,7 @@ using Kharaei.Domain;
 
 namespace Kharaei.Application;
 
-public interface IUserRepository //: IBaseRepository<int, User>
+public interface IUserRepository
 {   
     List<User> GetEntities(); 
     User GetEntity(int id);

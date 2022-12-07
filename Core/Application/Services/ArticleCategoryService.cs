@@ -4,14 +4,14 @@ using Kharaei.Domain;
 namespace Kharaei.Application;
 
 public class ArticleCategoryService : IArticleCategoryService
-{
+{    
+     
     private readonly IArticleCategoryRepository _articleCategoryRepository;
 
     public ArticleCategoryService(IArticleCategoryRepository articleCategoryRepository)
     {
         _articleCategoryRepository = articleCategoryRepository;
     }
-
     public List<ArticleCategoryDto> GetAll()
     {
         var articlecategories = _articleCategoryRepository.GetEntities();
@@ -54,4 +54,5 @@ public class ArticleCategoryService : IArticleCategoryService
         _articleCategoryRepository.InsertEntity(newRecord);           
         return newRecord;
     } 
+
 }

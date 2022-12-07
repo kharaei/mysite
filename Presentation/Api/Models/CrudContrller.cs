@@ -12,9 +12,9 @@ public class CrudController<TDto, TEntity, TKey> : BaseController
         where TEntity: IEntity, new()
         
 {
-    private readonly IBaseService<TDto, TEntity, int> _service;
+    private readonly IBaseService<TDto, TEntity, TKey> _service;
     
-    public CrudController(IBaseService<TDto, TEntity, int> service)
+    public CrudController(IBaseService<TDto, TEntity, TKey> service)
     {
         _service = service;
     }

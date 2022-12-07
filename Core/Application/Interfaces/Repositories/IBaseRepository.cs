@@ -2,7 +2,7 @@ using Kharaei.Domain;
 
 namespace Kharaei.Application;
 
-public interface IBaseRepository<in TKey, TEntity> where TEntity : BaseEntity<TKey>
+public interface IBaseRepository<TKey, TEntity>// where TEntity : BaseEntity<TKey>
 { 
     List<TEntity> GetEntities();  
     TEntity GetEntity(TKey id);

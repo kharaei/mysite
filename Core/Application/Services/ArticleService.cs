@@ -1,4 +1,3 @@
-
 using Kharaei.Domain;
 
 namespace Kharaei.Application;

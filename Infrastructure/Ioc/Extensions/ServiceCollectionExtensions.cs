@@ -20,13 +20,17 @@ public static class ServiceCollectionExtensions
     public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<SiteSettings>(configuration.GetSection(nameof(SiteSettings)));
-        services.AddTransient<IArticleService, ArticleService>();
-        services.AddTransient<IArticleRepository, ArticleRepository>();
+        services.AddScoped<IJwtService, JwtService>(); 
+        
         services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
         services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>(); 
+
+        services.AddTransient<IArticleService, ArticleService>();
+        services.AddTransient<IArticleRepository, ArticleRepository>();
+
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IUserRepository, UserRepository>();
-        services.AddScoped<IJwtService, JwtService>();
+
     }
 
     public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
