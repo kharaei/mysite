@@ -1,5 +1,6 @@
 using Kharaei.Application;
-using Kharaei.Common; 
+using Kharaei.Common;
+using Kharaei.Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kharaei.Api.Controllers.v2;
@@ -17,7 +18,19 @@ public class UserController : BaseController
     [HttpGet]
     public ApiResult<List<UserSelectDto>> Get()
     {
-        return _userService.ReadAll();
+        return _userService.Read();
+    } 
+
+    [HttpGet("{userId:int}")]
+    public ApiResult<User> Get(int userId)
+    {
+        return _userService.Read(userId);
+    } 
+
+    [HttpGet("{username}")]
+    public ApiResult<User> Get(string username)
+    {
+        return _userService.Read(username);
     } 
 
     [HttpPost]
@@ -30,6 +43,20 @@ public class UserController : BaseController
 
         return new ApiResult(result.Succeeded, ApiResultStatusCode.Success, desc);
     } 
+
+    [HttpPut("{id:int}")]
+    public ApiResult Put(int id, UserDto entity)
+    {
+        _userService.Update(id, entity);
+        return Ok();
+    }
+
+    [HttpDelete("{id:int}")]
+    public  ApiResult Delete(int id)
+    {
+        _userService.Delete(id);
+        return Ok();
+    }
 
     [HttpPost("Login")] 
     public ApiResult Login(string mobile)

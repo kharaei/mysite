@@ -15,7 +15,18 @@ public class UserService : IUserService
         _jwtService = jwtService;
     }
 
-    public List<UserSelectDto> ReadAll()
+    public IdentityResult Create(UserDto entity)
+    {
+        return _userManager.CreateAsync(new User{
+            Gender = entity.Gender,
+            UserName = entity.PhoneNumber,
+            PhoneNumber = entity.PhoneNumber,
+            Email = entity.Email,
+            FullName = entity.Fullname            
+        }).Result;
+    }
+
+    public List<UserSelectDto> Read()
     {   
         return _userManager.Users.Select(user => new UserSelectDto
         { 
@@ -26,6 +37,34 @@ public class UserService : IUserService
         }).ToList();
     } 
  
+    public User Read(string username)
+    {
+        return _userManager.FindByNameAsync(username).Result;
+    }
+
+    public User Read(int userId)
+    {
+        return _userManager.FindByIdAsync(userId.ToString()).Result;
+    }
+
+    public async Task<IdentityResult> Update(int userId, UserDto entity)
+    {
+        var user = _userManager.FindByIdAsync(userId.ToString());
+        if (user == null)
+            throw new BadRequestException("کاربری با این شناسه یافت نشد.");
+
+        return await _userManager.UpdateAsync(user.Result);
+    }
+ 
+    public void Delete(int userId)
+    {
+        var user = _userManager.FindByIdAsync(userId.ToString());
+        if (user == null)
+            throw new BadRequestException("کاربری با این شناسه یافت نشد.");
+
+        _userManager.DeleteAsync(user.Result);
+    }
+
     public void Login(string mobile)
     {
         var user = _userManager.FindByNameAsync(mobile).Result;
@@ -49,15 +88,5 @@ public class UserService : IUserService
         var jwt = await _jwtService.Generate(user);
         return jwt;
     }
-
-    public IdentityResult Create(UserDto entity)
-    {
-        return _userManager.CreateAsync(new User{
-            Gender = entity.Gender,
-            UserName = entity.PhoneNumber,
-            PhoneNumber = entity.PhoneNumber,
-            Email = entity.Email,
-            FullName = entity.Fullname            
-        }).Result;
-    }
+ 
 }
