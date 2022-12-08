@@ -17,14 +17,14 @@ public class UserController : BaseController
     [HttpGet]
     public ApiResult<List<UserDto>> Get()
     {
-        return _userService.GetAll();
+        return _userService.ReadAll();
     }
     
-    [HttpGet("{id:int}")]
-    public  ApiResult<UserDto> Get(int id)
-    {
-        return _userService.GetById(id);
-    }
+    // [HttpGet("{id:int}")]
+    // public  ApiResult<UserDto> Get(int id)
+    // {
+    //     return _userService.GetById(id);
+    // }
 
     [HttpPost("Login")] 
     public async Task<ApiResult<string>> Login(string username, string password)

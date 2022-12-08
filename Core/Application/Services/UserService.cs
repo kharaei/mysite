@@ -17,7 +17,7 @@ public class UserService : IUserService
         _jwtService = jwtService;
     }
 
-    public List<UserDto> GetAll()
+    public List<UserDto> ReadAll()
     { 
         var users = _userRepository.GetEntities();
         return users.Select(user => new UserDto
@@ -25,15 +25,6 @@ public class UserService : IUserService
             Username = user.UserName,  
             Gender = user.Gender.ToString()
         }).ToList();
-    }
-
-    public UserDto GetById(int id)
-    {
-        var user = _userRepository.GetEntity(id);        
-        return new UserDto{ 
-            Username = user.UserName,
-            Gender = user.Gender.ToString()
-        };
     } 
  
     public async Task<string> GenerateToken(string username, string password)

@@ -21,12 +21,12 @@ public static class ServiceCollectionExtensions
     {
         services.Configure<SiteSettings>(configuration.GetSection(nameof(SiteSettings)));
         services.AddScoped<IJwtService, JwtService>(); 
-        
-        services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
-        services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>(); 
 
-        services.AddTransient<IArticleService, ArticleService>();
-        services.AddTransient<IArticleRepository, ArticleRepository>();
+        services.AddTransient<IBaseRepository<Article, int>, BaseRepository<Article, int>>(); 
+        services.AddTransient<IBaseRepository<ArticleCategory, int>, BaseRepository<ArticleCategory, int>>(); 
+
+        services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
+        services.AddTransient<IArticleService, ArticleService>(); 
 
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IUserRepository, UserRepository>();

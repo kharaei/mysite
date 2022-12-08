@@ -3,6 +3,8 @@ using Kharaei.Domain;
 
 namespace  Kharaei.Application;
 
-public interface IArticleService: IBaseService<ArticleDto, Article, int>
+public interface IArticleService
 { 
+    List<ArticleSelectDto> ReadAll();    
+    Article Create(ArticleDto dto);
 }

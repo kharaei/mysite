@@ -6,12 +6,26 @@ using Kharaei.Domain;
 namespace Kharaei.Api.Controllers.v2;
   
 [ApiVersion("2")]
-public class ArticleController : CrudController<ArticleDto, Article, int>
+public class ArticleController : BaseController
 {
-    private readonly IBaseService<ArticleDto, Article, int>  _articleService;
+     private readonly IArticleService _articleService; 
 
-    public ArticleController(IBaseService<ArticleDto, Article, int> articleService): base(articleService)
+    public ArticleController(IArticleService articleService)
     {
         _articleService = articleService;
     }
+
+    [HttpGet]
+    public ApiResult<List<ArticleSelectDto>> Get()
+    {
+        return _articleService.ReadAll();
+    } 
+
+    [HttpPost]
+    public ApiResult Post(ArticleDto entity)
+    {
+        _articleService.Create(entity);
+        return Ok();
+    }
+
 }

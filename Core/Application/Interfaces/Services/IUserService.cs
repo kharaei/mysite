@@ -4,7 +4,6 @@ namespace  Kharaei.Application;
 
 public interface IUserService 
 {  
-    List<UserDto> GetAll();
-    UserDto GetById(int id);
+    List<UserDto> ReadAll(); 
     Task<string> GenerateToken(string username, string password);
 }

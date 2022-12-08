@@ -4,17 +4,17 @@ namespace Kharaei.Application;
 
 public class ArticleService : IArticleService
 {
-    private readonly IArticleRepository _articleRepository;
+    private readonly IBaseRepository<Article, int> _baseRepository; 
 
-    public ArticleService(IArticleRepository articleRepository)
+    public ArticleService(IBaseRepository<Article, int> baseRepository)
     {
-        _articleRepository = articleRepository;
+        _baseRepository = baseRepository;
     }
 
-    public List<ArticleDto> GetAll()
+    public List<ArticleSelectDto> ReadAll()
     {
-        var articles = _articleRepository.GetEntities();
-        return articles.Select(article => new ArticleDto
+        var articles = _baseRepository.GetEntities();
+        return articles.Select(article => new ArticleSelectDto
         {
             Id = article.Id, 
             Title = article.Title,  
@@ -22,6 +22,18 @@ public class ArticleService : IArticleService
         }).OrderByDescending(x => x.Id).ToList();
     }
 
+    public Article Create(ArticleDto entity)
+    {
+        Article newRecord = new Article{
+            Title = entity.Title,
+            CategoryId = 1,
+            AuthorId = 1,
+            Text=entity.Text
+        };
+        _baseRepository.InsertEntity(newRecord);
+        return newRecord;
+    } 
+    
     // public ArticleDto GetById(int id)
     // {
     //     var article = _articleRepository.GetEntity(id);        
@@ -32,31 +44,20 @@ public class ArticleService : IArticleService
     //     };
     // }
 
-    public List<ArticleDto> GetByTitle(string Title)
-    {
-        var articles = _articleRepository.GetEntities(Title);        
-        var results = new List<ArticleDto>();
-        foreach (var item in articles)
-        {
-            results.Add(new ArticleDto{
-                Id = item.Id,
-                Title = item.Title,
-                Text = item.Text,
-                PublishDateTime = item.PublishDateTime,            
-            });
-        }
-        return results;
-    }
+    // public List<ArticleDto> GetByTitle(string Title)
+    // {
+    //     var articles = _articleRepository.GetEntities(Title);        
+    //     var results = new List<ArticleDto>();
+    //     foreach (var item in articles)
+    //     {
+    //         results.Add(new ArticleDto{
+    //             Id = item.Id,
+    //             Title = item.Title,
+    //             Text = item.Text,
+    //             PublishDateTime = item.PublishDateTime,            
+    //         });
+    //     }
+    //     return results;
+    // }
 
-    public Article Add(ArticleDto entity)
-    {
-        Article newRecord = new Article{
-            Title = entity.Title,
-            CategoryId = 1,
-            AuthorId = 1,
-            Text=entity.Text
-        };
-        _articleRepository.InsertEntity(newRecord);
-        return newRecord;
-    } 
 }

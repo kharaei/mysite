@@ -5,24 +5,34 @@ namespace Kharaei.Application;
 
 public class ArticleCategoryService : IArticleCategoryService
 {    
-     
-    private readonly IArticleCategoryRepository _articleCategoryRepository;
+    private readonly IBaseRepository<ArticleCategory, int> _baseRepository; 
 
-    public ArticleCategoryService(IArticleCategoryRepository articleCategoryRepository)
-    {
-        _articleCategoryRepository = articleCategoryRepository;
+    public ArticleCategoryService(IBaseRepository<ArticleCategory, int> baseRepository)
+    { 
+        _baseRepository = baseRepository;
     }
-    public List<ArticleCategoryDto> GetAll()
+
+    public List<ArticleCategorySelectDto> ReadAll()
     {
-        var articlecategories = _articleCategoryRepository.GetEntities();
-        return articlecategories.Select(articleCategory => new ArticleCategoryDto
+        var articlecategories = _baseRepository.GetEntities();
+        return articlecategories.Select(articleCategory => new ArticleCategorySelectDto
         {
             Id = articleCategory.Id, 
             Title = articleCategory.Title,  
         }).OrderByDescending(x => x.Id).ToList();
     }
+
+    public ArticleCategory Create(ArticleCategoryDto entity)
+    {    
+        var newRecord = new ArticleCategory();
+        newRecord.Title = entity.Title;
+        if (entity.ParentCategoryId > 0)
+            newRecord.ParentCategoryId = entity.ParentCategoryId;        
+        _baseRepository.InsertEntity(newRecord);           
+        return newRecord;
+    } 
     
-    // public ArticleCategoryDto GetById(int id)
+    // public override ArticleCategoryDto GetById(int id)
     // {
     //     var articleCategory = _articleCategoryRepository.GetEntity(id);        
     //     return new ArticleCategoryDto{
@@ -31,28 +41,18 @@ public class ArticleCategoryService : IArticleCategoryService
     //     };
     // }
 
-    public List<ArticleCategoryDto> GetByTitle(string Title)
-    {
-        var articleCategories = _articleCategoryRepository.GetEntities(Title);        
-        var results = new List<ArticleCategoryDto>();
-        foreach (var item in articleCategories)
-        {
-            results.Add(new ArticleCategoryDto{
-            Id  = item.Id,
-            Title = item.Title            
-            });
-        }
-        return results;
-    }
-
-    public ArticleCategory Add(ArticleCategoryDto entity)
-    {    
-        ArticleCategory newRecord = new ArticleCategory{
-            Title = entity.Title,
-            ParentCategoryId = 0
-        };
-        _articleCategoryRepository.InsertEntity(newRecord);           
-        return newRecord;
-    } 
+    // public List<ArticleCategoryDto> GetByTitle(string Title)
+    // {
+    //     var articleCategories = _articleCategoryRepository.GetEntities(Title);        
+    //     var results = new List<ArticleCategoryDto>();
+    //     foreach (var item in articleCategories)
+    //     {
+    //         results.Add(new ArticleCategoryDto{
+    //         Id  = item.Id,
+    //         Title = item.Title            
+    //         });
+    //     }
+    //     return results;
+    // }
 
 }

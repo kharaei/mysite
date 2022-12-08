@@ -3,7 +3,7 @@ using Kharaei.Application;
 
 namespace Kharaei.Infra.Data;
 
-public class BaseRepository<TKey, TEntity> : IBaseRepository<TKey, TEntity> where TEntity : BaseEntity<TKey>
+public class BaseRepository<TEntity, TKey> : IBaseRepository<TEntity, TKey> where TEntity : BaseEntity<TKey>
 { 
     private readonly KharaeiDbContext _dbcontext;
 
