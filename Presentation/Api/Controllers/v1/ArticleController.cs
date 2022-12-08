@@ -18,7 +18,7 @@ public class ArticleController: BaseController
     [HttpGet] 
     public virtual ApiResult<List<ArticleSelectDto>> Get()
     {  
-        return _articleService.ReadAll();
+        return _articleService.Read();
     }
 
     // [HttpGet("{id:int}")]

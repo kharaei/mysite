@@ -18,7 +18,7 @@ public class ArticleController : BaseController
     [HttpGet]
     public ApiResult<List<ArticleSelectDto>> Get()
     {
-        return _articleService.ReadAll();
+        return _articleService.Read();
     } 
 
     [HttpPost]

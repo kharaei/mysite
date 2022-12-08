@@ -18,7 +18,7 @@ public class ArticleCategoryController : BaseController
     [HttpGet]
     public ApiResult<List<ArticleCategorySelectDto>> Get()
     {
-        return _articleCategoryService.ReadAll();
+        return _articleCategoryService.Read();
     } 
 
     [HttpGet("{id:int}")]
@@ -31,6 +31,13 @@ public class ArticleCategoryController : BaseController
     public ApiResult Post(ArticleCategoryDto entity)
     {
         _articleCategoryService.Create(entity);
+        return Ok();
+    }
+    
+    [HttpPut("{id:int}")]
+    public ApiResult Put(int id, ArticleCategoryDto entity)
+    {
+        _articleCategoryService.Update(id, entity);
         return Ok();
     }
 

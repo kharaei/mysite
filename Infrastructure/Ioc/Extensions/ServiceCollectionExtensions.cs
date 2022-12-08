@@ -20,15 +20,12 @@ public static class ServiceCollectionExtensions
     public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<SiteSettings>(configuration.GetSection(nameof(SiteSettings)));
-        services.AddScoped<IJwtService, JwtService>(); 
-
-        services.AddTransient<IBaseRepository<Article, int>, BaseRepository<Article, int>>(); 
-        services.AddTransient<IBaseRepository<ArticleCategory, int>, BaseRepository<ArticleCategory, int>>(); 
-
+        services.AddTransient<IBaseRepository<Article>, BaseRepository<Article>>(); 
+        services.AddTransient<IBaseRepository<ArticleCategory>, BaseRepository<ArticleCategory>>();  
         services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
         services.AddTransient<IArticleService, ArticleService>();  
-        services.AddScoped<IUserService, UserService>(); 
-
+        services.AddScoped<IUserService, UserService>();  
+        services.AddScoped<IJwtService, JwtService>();   
     }
 
     public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
@@ -53,10 +50,10 @@ public static class ServiceCollectionExtensions
 
             //UserName Settings
             identityOptions.User.RequireUniqueEmail = settings.RequireUniqueEmail;            
-
+            
             //Singin Settings
             identityOptions.SignIn.RequireConfirmedEmail = false;
-            identityOptions.SignIn.RequireConfirmedPhoneNumber = false;
+            identityOptions.SignIn.RequireConfirmedPhoneNumber = true;
 
             //Lockout Settings
             //identityOptions.Lockout.MaxFailedAccessAttempts = 5;
@@ -91,10 +88,10 @@ public static class ServiceCollectionExtensions
                 RequireExpirationTime = true,
                 ValidateLifetime = true,
 
-                ValidateAudience = true, //default : false
+                ValidateAudience = false, //default : false
                 ValidAudience = settings.Audience,
 
-                ValidateIssuer = true, //default : false
+                ValidateIssuer = false, //default : false
                 ValidIssuer = settings.Issuer,
 
                 TokenDecryptionKey = new SymmetricSecurityKey(encryptionkey)

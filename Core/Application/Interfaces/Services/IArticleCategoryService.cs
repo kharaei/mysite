@@ -4,10 +4,10 @@ using Kharaei.Domain;
 namespace  Kharaei.Application;
 
 public interface IArticleCategoryService
-{    
-    List<ArticleCategorySelectDto> ReadAll(); 
+{   
+    void Create(ArticleCategoryDto dto);  
+    List<ArticleCategorySelectDto> Read(); 
     ArticleCategory Read(int Id);
-    ArticleCategory Create(ArticleCategoryDto dto); 
-    void Delete (int Id);
-    //void DeleteRange (List<int> Ids);
+    void Update(int Id, ArticleCategoryDto dto);
+    void Delete (int Id); 
 }

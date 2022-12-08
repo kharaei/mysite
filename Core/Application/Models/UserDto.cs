@@ -2,7 +2,7 @@ using Kharaei.Domain;
 
 namespace Kharaei.Application;
 
-public class UserDto : IDto
+public class UserDto
 { 
     public string PhoneNumber { get; set; } 
     public GenderType Gender { get; set; } 
@@ -10,7 +10,7 @@ public class UserDto : IDto
     public string Email { get; set; }  
 }
  
-public class UserSelectDto : IDto
+public class UserSelectDto 
 { 
     public int Id { get; set; }
     public string UserName { get; set; }    

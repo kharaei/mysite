@@ -6,16 +6,27 @@ namespace Kharaei.Application;
 
 public class ArticleCategoryService : IArticleCategoryService
 {    
-    private readonly IBaseRepository<ArticleCategory, int> _baseRepository; 
+    private readonly IBaseRepository<ArticleCategory> _baseRepository; 
 
-    public ArticleCategoryService(IBaseRepository<ArticleCategory, int> baseRepository)
+    public ArticleCategoryService(IBaseRepository<ArticleCategory> baseRepository)
     { 
         _baseRepository = baseRepository;
     }
+ 
+    public void Create(ArticleCategoryDto entity)
+    {    
+        var newRecord = new ArticleCategory();
+        newRecord.Title = entity.Title;
+        if (entity.ParentCategoryId > 0)
+            newRecord.ParentCategoryId = entity.ParentCategoryId; 
 
-    public List<ArticleCategorySelectDto> ReadAll()
+        _baseRepository.Add(newRecord); 
+    } 
+
+
+    public List<ArticleCategorySelectDto> Read()
     {
-        var articlecategories = _baseRepository.GetEntities();
+        var articlecategories = _baseRepository.TableNoTracking.ToList();
         return articlecategories.Select(articleCategory => new ArticleCategorySelectDto
         {
             Id = articleCategory.Id, 
@@ -25,26 +36,24 @@ public class ArticleCategoryService : IArticleCategoryService
     
     public ArticleCategory Read(int Id)
     {
-        return _baseRepository.GetEntity(Id);   
+        return _baseRepository.GetById(Id);   
     }
 
-    public ArticleCategory Create(ArticleCategoryDto entity)
-    {    
-        var newRecord = new ArticleCategory();
-        newRecord.Title = entity.Title;
-        if (entity.ParentCategoryId > 0)
-            newRecord.ParentCategoryId = entity.ParentCategoryId; 
-
-        return _baseRepository.InsertEntity(newRecord);
-    } 
+    public void Update(int Id, ArticleCategoryDto dto)
+    {
+        var model = _baseRepository.GetById(Id);
+        model.Title = dto.Title;
+        model.ParentCategoryId = dto.ParentCategoryId;
+        _baseRepository.Update(model);
+    }
 
     public void Delete(int Id)
     {
-        var articleCategory = _baseRepository.GetEntity(Id);
+        var articleCategory = _baseRepository.GetById(Id);
         if (articleCategory == null)
             throw new BadRequestException("شناسه نامعتبر است.");
 
-        _baseRepository.RemoveEntity(articleCategory);        
+        _baseRepository.Delete(articleCategory);        
     }  
 
 }
