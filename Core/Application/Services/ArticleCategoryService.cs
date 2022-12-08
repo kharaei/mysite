@@ -1,4 +1,5 @@
 
+using Kharaei.Common;
 using Kharaei.Domain;
 
 namespace Kharaei.Application;
@@ -21,38 +22,29 @@ public class ArticleCategoryService : IArticleCategoryService
             Title = articleCategory.Title,  
         }).OrderByDescending(x => x.Id).ToList();
     }
+    
+    public ArticleCategory Read(int Id)
+    {
+        return _baseRepository.GetEntity(Id);   
+    }
 
     public ArticleCategory Create(ArticleCategoryDto entity)
     {    
         var newRecord = new ArticleCategory();
         newRecord.Title = entity.Title;
         if (entity.ParentCategoryId > 0)
-            newRecord.ParentCategoryId = entity.ParentCategoryId;        
-        _baseRepository.InsertEntity(newRecord);           
-        return newRecord;
-    } 
-    
-    // public override ArticleCategoryDto GetById(int id)
-    // {
-    //     var articleCategory = _articleCategoryRepository.GetEntity(id);        
-    //     return new ArticleCategoryDto{
-    //         Id  = articleCategory.Id,
-    //         Title = articleCategory.Title            
-    //     };
-    // }
+            newRecord.ParentCategoryId = entity.ParentCategoryId; 
 
-    // public List<ArticleCategoryDto> GetByTitle(string Title)
-    // {
-    //     var articleCategories = _articleCategoryRepository.GetEntities(Title);        
-    //     var results = new List<ArticleCategoryDto>();
-    //     foreach (var item in articleCategories)
-    //     {
-    //         results.Add(new ArticleCategoryDto{
-    //         Id  = item.Id,
-    //         Title = item.Title            
-    //         });
-    //     }
-    //     return results;
-    // }
+        return _baseRepository.InsertEntity(newRecord);
+    } 
+
+    public void Delete(int Id)
+    {
+        var articleCategory = _baseRepository.GetEntity(Id);
+        if (articleCategory == null)
+            throw new BadRequestException("شناسه نامعتبر است.");
+
+        _baseRepository.RemoveEntity(articleCategory);        
+    }  
 
 }

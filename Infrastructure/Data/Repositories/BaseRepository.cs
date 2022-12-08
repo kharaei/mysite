@@ -22,9 +22,22 @@ public class BaseRepository<TEntity, TKey> : IBaseRepository<TEntity, TKey> wher
         return _dbcontext.Find<TEntity>(id);
     }
 
-    public void InsertEntity(TEntity entiry)
+    public TEntity InsertEntity(TEntity entiry)
     {
         _dbcontext.Add(entiry);
+        _dbcontext.SaveChanges();
+        return entiry;
+    }
+
+    public void RemoveEntity(TEntity entity)
+    {
+        _dbcontext.Remove(entity);
+        _dbcontext.SaveChanges();
+        return;
+    }
+    public void RemoveEntities(List<TEntity> entities)
+    {
+        _dbcontext.RemoveRange(entities);
         _dbcontext.SaveChanges();
         return;
     }

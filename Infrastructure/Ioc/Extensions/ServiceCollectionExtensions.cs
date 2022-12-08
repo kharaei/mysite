@@ -26,10 +26,8 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IBaseRepository<ArticleCategory, int>, BaseRepository<ArticleCategory, int>>(); 
 
         services.AddTransient<IArticleCategoryService, ArticleCategoryService>();
-        services.AddTransient<IArticleService, ArticleService>(); 
-
-        services.AddScoped<IUserService, UserService>();
-        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddTransient<IArticleService, ArticleService>();  
+        services.AddScoped<IUserService, UserService>(); 
 
     }
 
@@ -54,7 +52,7 @@ public static class ServiceCollectionExtensions
             identityOptions.Password.RequireLowercase = settings.PasswordRequireLowercase;
 
             //UserName Settings
-            identityOptions.User.RequireUniqueEmail = settings.RequireUniqueEmail;
+            identityOptions.User.RequireUniqueEmail = settings.RequireUniqueEmail;            
 
             //Singin Settings
             identityOptions.SignIn.RequireConfirmedEmail = false;

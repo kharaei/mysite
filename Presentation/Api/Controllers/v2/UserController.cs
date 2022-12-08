@@ -15,20 +15,25 @@ public class UserController : BaseController
     }
 
     [HttpGet]
-    public ApiResult<List<UserDto>> Get()
+    public ApiResult<List<UserSelectDto>> Get()
     {
         return _userService.ReadAll();
-    }
-    
-    // [HttpGet("{id:int}")]
-    // public  ApiResult<UserDto> Get(int id)
-    // {
-    //     return _userService.GetById(id);
-    // }
+    } 
+
+    [HttpPost]
+    public ApiResult Post(UserDto entity)
+    {
+        var result = _userService.Create(entity);
+        string desc = "";
+        if (result.Errors.Any())
+            desc = result.Errors.FirstOrDefault().Description;
+            
+        return new ApiResult(result.Succeeded, ApiResultStatusCode.Success, desc);
+    } 
 
     [HttpPost("Login")] 
     public async Task<ApiResult<string>> Login(string username, string password)
     {        
-        return await _userService.GenerateToken(username, password);
+        return await _userService.Login(username, password);
     }
 }

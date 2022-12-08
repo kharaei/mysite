@@ -5,29 +5,28 @@ using Microsoft.AspNetCore.Identity;
 namespace Kharaei.Application;
 
 public class UserService : IUserService
-{  
-    private readonly IUserRepository _userRepository;
+{   
     private readonly UserManager<User> _userManager;
     private readonly IJwtService _jwtService;
 
-    public UserService(IUserRepository userRepository, IJwtService jwtService, UserManager<User> userManager)
-    {
-        _userRepository = userRepository;
+    public UserService(IJwtService jwtService, UserManager<User> userManager)
+    { 
         _userManager = userManager;
         _jwtService = jwtService;
     }
 
-    public List<UserDto> ReadAll()
-    { 
-        var users = _userRepository.GetEntities();
-        return users.Select(user => new UserDto
+    public List<UserSelectDto> ReadAll()
+    {   
+        return _userManager.Users.Select(user => new UserSelectDto
         { 
-            Username = user.UserName,  
-            Gender = user.Gender.ToString()
+            Id = user.Id,
+            UserName = user.PhoneNumber,  
+            Gender = user.Gender.ToString(),
+            Fullname = user.FullName,            
         }).ToList();
     } 
  
-    public async Task<string> GenerateToken(string username, string password)
+    public async Task<string> Login(string username, string password)
     {
         var user = await _userManager.FindByNameAsync(username);
         if (user == null)
@@ -39,5 +38,16 @@ public class UserService : IUserService
  
         var jwt = await _jwtService.Generate(user);
         return jwt;
+    }
+
+    public IdentityResult Create(UserDto entity)
+    {
+        return _userManager.CreateAsync(new User{
+            Gender = entity.Gender,
+            UserName = entity.PhoneNumber,
+            PhoneNumber = entity.PhoneNumber,
+            Email = entity.Email,
+            FullName = entity.Fullname            
+        }).Result;
     }
 }

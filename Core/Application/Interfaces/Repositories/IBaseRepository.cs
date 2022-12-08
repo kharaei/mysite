@@ -7,7 +7,8 @@ public interface IBaseRepository<TEntity, TKey>
 { 
     List<TEntity> GetEntities();  
     TEntity GetEntity(TKey id);
-    void InsertEntity(TEntity entity);
+    TEntity InsertEntity(TEntity entity);
     //void UpdateEntity(TEntity entity);
-    //void DeleteEntity(int id);
+    void RemoveEntity(TEntity entity);
+    void RemoveEntities(List<TEntity> entities);
 }

@@ -3,9 +3,18 @@ using Kharaei.Domain;
 namespace Kharaei.Application;
 
 public class UserDto : IDto
-{
-    public string Username { get; set; }  
+{ 
+    public string PhoneNumber { get; set; } 
+    public GenderType Gender { get; set; } 
+    public string Fullname { get; set; }  
+    public string Email { get; set; }  
+}
+ 
+public class UserSelectDto : IDto
+{ 
+    public int Id { get; set; }
+    public string UserName { get; set; }    
     public string Gender { get; set; } 
-    public string Mobile { get; set; } 
+    public string Fullname { get; set; }    
 }
  

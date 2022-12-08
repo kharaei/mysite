@@ -21,6 +21,12 @@ public class ArticleCategoryController : BaseController
         return _articleCategoryService.ReadAll();
     } 
 
+    [HttpGet("{id:int}")]
+    public  ApiResult<ArticleCategory> Get(int id)
+    {
+        return _articleCategoryService.Read(id);
+    }
+
     [HttpPost]
     public ApiResult Post(ArticleCategoryDto entity)
     {
@@ -28,4 +34,10 @@ public class ArticleCategoryController : BaseController
         return Ok();
     }
 
+    [HttpDelete("{id:int}")]
+    public  ApiResult Delete(int id)
+    {
+        _articleCategoryService.Delete(id);
+        return Ok();
+    }
 }
