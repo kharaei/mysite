@@ -27,13 +27,19 @@ public class UserController : BaseController
         string desc = "";
         if (result.Errors.Any())
             desc = result.Errors.FirstOrDefault().Description;
-            
+
         return new ApiResult(result.Succeeded, ApiResultStatusCode.Success, desc);
     } 
 
     [HttpPost("Login")] 
-    public async Task<ApiResult<string>> Login(string username, string password)
+    public async Task<ApiResult<string>> Login(string mobile)
     {        
-        return await _userService.Login(username, password);
+        return _userService.Login(mobile);
+    }
+
+    [HttpPost("Token")] 
+    public async Task<ApiResult<string>> Token(string username, string password)
+    {        
+        return await _userService.Token(username, password);
     }
 }

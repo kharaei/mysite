@@ -26,7 +26,18 @@ public class UserService : IUserService
         }).ToList();
     } 
  
-    public async Task<string> Login(string username, string password)
+    public string Login(string mobile)
+    {
+        var user = _userManager.FindByNameAsync(mobile).Result;
+        if (user == null)
+            throw new BadRequestException("کاربری با این شماره موبایل وجود ندارد.");
+        
+        _userManager.RemovePasswordAsync(user);
+        _userManager.AddPasswordAsync(user, "123456");
+        return "123456";
+    }
+
+    public async Task<string> Token(string username, string password)
     {
         var user = await _userManager.FindByNameAsync(username);
         if (user == null)

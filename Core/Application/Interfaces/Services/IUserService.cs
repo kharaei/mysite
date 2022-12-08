@@ -7,5 +7,6 @@ public interface IUserService
 {  
     List<UserSelectDto> ReadAll(); 
     IdentityResult Create(UserDto entity);
-    Task<string> Login(string username, string password);
+    string Login(string mobile);
+    Task<string> Token(string username, string password);
 }
