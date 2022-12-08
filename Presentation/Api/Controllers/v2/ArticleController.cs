@@ -28,4 +28,18 @@ public class ArticleController : BaseController
         return Ok();
     }
 
+    [HttpPut("{id:int}")]
+    public ApiResult Put(int id, ArticleDto entity)
+    {
+        _articleService.Update(id, entity);
+        return Ok();
+    }
+
+    [HttpDelete("{id:int}")]
+    public  ApiResult Delete(int id)
+    {
+        _articleService.Delete(id);
+        return Ok();
+    }
+
 }

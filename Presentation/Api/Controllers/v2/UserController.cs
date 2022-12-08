@@ -32,9 +32,10 @@ public class UserController : BaseController
     } 
 
     [HttpPost("Login")] 
-    public async Task<ApiResult<string>> Login(string mobile)
+    public ApiResult Login(string mobile)
     {        
-        return _userService.Login(mobile);
+        _userService.Login(mobile);
+        return new ApiResult(true, ApiResultStatusCode.Success, "کد ورود به شماره موبایل شما ارسال شد.");
     }
 
     [HttpPost("Token")] 

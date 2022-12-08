@@ -26,7 +26,7 @@ public class UserService : IUserService
         }).ToList();
     } 
  
-    public string Login(string mobile)
+    public void Login(string mobile)
     {
         var user = _userManager.FindByNameAsync(mobile).Result;
         if (user == null)
@@ -34,7 +34,6 @@ public class UserService : IUserService
         
         _userManager.RemovePasswordAsync(user);
         _userManager.AddPasswordAsync(user, "123456");
-        return "123456";
     }
 
     public async Task<string> Token(string username, string password)

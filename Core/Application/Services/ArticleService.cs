@@ -1,3 +1,4 @@
+using Kharaei.Common;
 using Kharaei.Domain;
 
 namespace Kharaei.Application;
@@ -17,7 +18,9 @@ public class ArticleService : IArticleService
             Title = entity.Title,
             CategoryId = entity.CategoryId,
             AuthorId = entity.AuthorId,
-            Text=entity.Text
+            Text=entity.Text,
+            PublishDateTime = entity.PublishDateTime,
+            Image = entity.Image
         };
         _baseRepository.Add(newRecord);        
     } 
@@ -38,4 +41,24 @@ public class ArticleService : IArticleService
         return _baseRepository.GetById(id);
     }
   
+    public void Update(int Id, ArticleDto dto)
+    {
+        var model = _baseRepository.GetById(Id);
+        model.Title = dto.Title;
+        model.Text = dto.Text;
+        model.CategoryId = dto.CategoryId;
+        model.AuthorId = dto.AuthorId;
+        model.Image = dto.Image;
+        _baseRepository.Update(model);
+    }
+
+    public void Delete(int Id)
+    {
+        var article = _baseRepository.GetById(Id);
+        if (article == null)
+            throw new BadRequestException("شناسه نامعتبر است.");
+
+        _baseRepository.Delete(article);        
+    } 
+
 }
