@@ -2,9 +2,11 @@ using Kharaei.Common;
 using Kharaei.Domain;
 using Kharaei.Application;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Kharaei.Api;
- 
+  
+ [Authorize]
  public class CrudController<TService, TEntity, TSelectDto, TDto, TKey> : BaseController
         where TService : IBaseService<TEntity, TSelectDto, TDto, TKey>
         where TEntity : BaseEntity<TKey>, new()
@@ -19,27 +21,33 @@ namespace Kharaei.Api;
     }
 
     [HttpGet]
-    public ApiResult<List<TSelectDto>> Get()
+    public virtual ApiResult<List<TSelectDto>> Get()
     { 
         return _service.Read();
     } 
+  
+    [HttpGet("{id:int}")]
+    public virtual ApiResult<TEntity> Get(int id)
+    {
+        return _service.Read(id);        
+    }
 
     [HttpPost]
-    public ApiResult Post(TDto entity)
+    public virtual ApiResult Post(TDto entity)
     {
         _service.Create(entity);
         return Ok();
     }
 
     [HttpPut("{id:int}")]
-    public ApiResult Put(int id, TDto entity)
+    public virtual ApiResult Put(int id, TDto entity)
     {
         _service.Update(id, entity);
         return Ok();
     }
 
     [HttpDelete("{id:int}")]
-    public  ApiResult Delete(int id)
+    public virtual  ApiResult Delete(int id)
     {
         _service.Delete(id);
         return Ok();

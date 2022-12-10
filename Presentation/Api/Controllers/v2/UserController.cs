@@ -1,11 +1,13 @@
 using Kharaei.Application;
 using Kharaei.Common;
 using Kharaei.Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kharaei.Api.Controllers.v2;
 
-[ApiVersion("2")]  
+[ApiVersion("2")] 
+[Authorize] 
 public class UserController : BaseController
 {
     private readonly IUserService _userService;
@@ -59,12 +61,14 @@ public class UserController : BaseController
     }
 
     [HttpPost("Login")] 
+    [AllowAnonymous]
     public ApiResult Login(string mobile)
     {        
         _userService.Login(mobile);
         return new ApiResult(true, ApiResultStatusCode.Success, "کد ورود به شماره موبایل شما ارسال شد.");
     }
 
+    [AllowAnonymous]
     [HttpPost("Token")] 
     public async Task<ApiResult<string>> Token(string username, string password)
     {        

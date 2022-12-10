@@ -88,10 +88,10 @@ public static class ServiceCollectionExtensions
                 RequireExpirationTime = true,
                 ValidateLifetime = true,
 
-                ValidateAudience = false, //default : false
+                ValidateAudience = true, //default : false
                 ValidAudience = settings.Audience,
 
-                ValidateIssuer = false, //default : false
+                ValidateIssuer = true, //default : false
                 ValidIssuer = settings.Issuer,
 
                 TokenDecryptionKey = new SymmetricSecurityKey(encryptionkey)
