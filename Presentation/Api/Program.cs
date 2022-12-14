@@ -1,3 +1,4 @@
+using System.Reflection;
 using Kharaei.Infra.Ioc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
@@ -11,7 +12,8 @@ builder.Services.AddCustomIdentity(builder.Configuration);
 builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 builder.Services.AddCustomApiVersioning();
-builder.Services.AddControllers();
+builder.Services.AddControllers(); 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSwaggerGen(options =>
 {    
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

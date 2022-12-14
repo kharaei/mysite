@@ -6,20 +6,20 @@ this project is implemented using **Clean Architecture**.
 ## :star: Implemented Items:
 1. The following items were implemented:
    - Layering & Architecture
+   - Dependency Injection
    - Standardization
       - Standard Api Result 
       - Exception Handling 
       - Automatic Validation
    - EFCore
    - Identity
-   - Dependency Injection
    - Api Versioning
+   - JWT Authentication
    - Swagger Documentation
+   - AutoMapper
 
 2. The following items will implement:
-   - JWT Authentication
-   - Logger (NLoger)
-   - AutoMapper
+   - Logger
    - RESTful
 
 ## :star: Presentation Layer Includes: 

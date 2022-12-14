@@ -12,6 +12,8 @@ using Kharaei.Domain;
 using Kharaei.Application;
 using Kharaei.Infra.Data; 
 using Microsoft.Extensions.Configuration;
+using AutoMapper;
+using System.Reflection;
 
 namespace Kharaei.Infra.Ioc;
 

@@ -1,4 +1,4 @@
-
+using AutoMapper;
 using Kharaei.Common;
 using Kharaei.Domain;
 
@@ -7,10 +7,12 @@ namespace Kharaei.Application;
 public class ArticleCategoryService : IArticleCategoryService
 {    
     private readonly IBaseRepository<ArticleCategory> _baseRepository; 
+    private readonly IMapper _mapper;
 
-    public ArticleCategoryService(IBaseRepository<ArticleCategory> baseRepository)
+    public ArticleCategoryService(IBaseRepository<ArticleCategory> baseRepository, IMapper mapper)
     { 
         _baseRepository = baseRepository;
+        _mapper = mapper;
     }
  
     public void Create(ArticleCategoryDto entity)
@@ -27,11 +29,8 @@ public class ArticleCategoryService : IArticleCategoryService
     public List<ArticleCategorySelectDto> Read()
     {
         var articlecategories = _baseRepository.TableNoTracking.ToList();
-        return articlecategories.Select(articleCategory => new ArticleCategorySelectDto
-        {
-            Id = articleCategory.Id, 
-            Title = articleCategory.Title,  
-        }).OrderByDescending(x => x.Id).ToList();
+        var x = _mapper.Map<List<ArticleCategorySelectDto>>(articlecategories);
+        return x;
     }
     
     public ArticleCategory Read(int Id)
