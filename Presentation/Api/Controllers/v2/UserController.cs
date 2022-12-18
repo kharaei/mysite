@@ -62,16 +62,18 @@ public class UserController : BaseController
 
     [HttpPost("Login")] 
     [AllowAnonymous]
-    public ApiResult Login(string mobile)
+    public ApiResult Login(LoginDto model)
     {        
-        _userService.Login(mobile);
+        _userService.Login(model.mobile);
         return new ApiResult(true, ApiResultStatusCode.Success, "کد ورود به شماره موبایل شما ارسال شد.");
     }
 
     [AllowAnonymous]
     [HttpPost("Token")] 
-    public async Task<ApiResult<string>> Token(string username, string password)
+    public async Task<ApiResult<string>> Token(TokenDto model)
     {        
-        return await _userService.Token(username, password);
+        return await _userService.Token(model.username, model.password);
     }
+
+    
 }

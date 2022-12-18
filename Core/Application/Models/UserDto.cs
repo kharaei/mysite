@@ -17,4 +17,14 @@ public class UserSelectDto
     public string Gender { get; set; } 
     public string Fullname { get; set; }    
 }
- 
+
+public class LoginDto
+{
+    public string mobile { get; set; }
+}
+
+public class TokenDto
+{
+    public string username { get; set; }
+    public string password { get; set; }
+}
