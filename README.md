@@ -1,7 +1,10 @@
-# Practical WebApi Project with .Net 7.0
-This is a webpi project. In this practice project, I have implemented the following list.
+# Practical WebApi Project
 
-## :star: Implemented Items:
+## :star: Project description:
+This is a webapi project with dotnet7. In this practice project I have implemented the following list.
+
+## :star: Project details:
+### Implemented list:
    - Clean Architecture
    - Dependency Injection
    - Standardization:
@@ -15,13 +18,12 @@ This is a webpi project. In this practice project, I have implemented the follow
    - Swagger Documentation
    - AutoMapper
 
-
 ### The following items will implement:
    - RESTful
    - Log
    
 
-## :star: Presentation Layer Includes: 
+## :star: Project presentations:
 1. Api v1.0
    - Get Layout Information (set values in **code**!)
    - Get Articles List and Article Details
