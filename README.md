@@ -1,26 +1,25 @@
-# Practical WebApi Project with .Net7
-hi, my name is reza. i'm dot net developer.
-this project is for practice and I'll implement here what I learned. 
-this project is implemented using **Clean Architecture**.
+# Practical WebApi Project with .Net 7.0
+This is a webpi project. In this practice project, I have implemented the following list.
 
 ## :star: Implemented Items:
-1. The following items were implemented:
-   - Layering & Architecture
+   - Clean Architecture
    - Dependency Injection
-   - Standardization
-      - Standard Api Result 
-      - Exception Handling 
+   - Standardization:
+      - Standard Api Result
+      - Exception Handling
       - Automatic Validation
-   - EFCore
+   - use SqlServer & MySql with EFCore
    - Identity
-   - Api Versioning
    - JWT Authentication
+   - Api Versioning
    - Swagger Documentation
    - AutoMapper
 
-2. The following items will implement:
-   - Logger
+
+### The following items will implement:
    - RESTful
+   - Log
+   
 
 ## :star: Presentation Layer Includes: 
 1. Api v1.0
