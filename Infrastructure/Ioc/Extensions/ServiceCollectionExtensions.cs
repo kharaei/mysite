@@ -1,19 +1,18 @@
 using System.Text;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore; 
-using Microsoft.IdentityModel.Tokens;  
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.JwtBearer; 
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Kharaei.Common;
 using Kharaei.Domain;
 using Kharaei.Application;
-using Kharaei.Infra.Data; 
+using Kharaei.Infra.Data;
 using Microsoft.Extensions.Configuration;
-using AutoMapper;
-using System.Reflection;
+using Pomelo.EntityFrameworkCore.MySql.Storage;
 
 namespace Kharaei.Infra.Ioc;
 
@@ -32,9 +31,14 @@ public static class ServiceCollectionExtensions
 
     public static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
     {
+        var _connectionString = configuration.GetConnectionString("MySql");
         services.AddDbContext<KharaeiDbContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("SqlServer")); 
+            // for SqlServer:
+            //options.UseSqlServer(configuration.GetConnectionString("SqlServer")); 
+
+            // for MySql
+            options.UseMySql(_connectionString, ServerVersion.AutoDetect(_connectionString));
         });
     }
 
