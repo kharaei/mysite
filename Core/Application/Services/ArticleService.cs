@@ -17,10 +17,9 @@ public class ArticleService : IArticleService
         Article newRecord = new Article{
             Title = entity.Title,
             CategoryId = entity.CategoryId,
-            AuthorId = entity.AuthorId,
             Text=entity.Text,
-            PublishDateTime = entity.PublishDateTime,
-            Image = entity.Image
+            Image = entity.Image,
+            Status = entity.Status
         };
         _baseRepository.Add(newRecord);        
     } 
@@ -47,7 +46,7 @@ public class ArticleService : IArticleService
         model.Title = dto.Title;
         model.Text = dto.Text;
         model.CategoryId = dto.CategoryId;
-        model.AuthorId = dto.AuthorId;
+        model.Status = dto.Status;
         model.Image = dto.Image;
         _baseRepository.Update(model);
     }

@@ -39,6 +39,9 @@ namespace Kharaei.Infra.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("longtext");

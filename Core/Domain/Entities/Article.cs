@@ -9,6 +9,7 @@ public class Article: BaseEntity<int>
     public string Image { get; set; }
     public string Text { get; set; }
     public string PublishDateTime { get; set; }    
+    public bool Status { get; set; }
     public int CategoryId { get; set; }
     public int AuthorId { get; set; } 
     public ArticleCategory Category { get; set; }

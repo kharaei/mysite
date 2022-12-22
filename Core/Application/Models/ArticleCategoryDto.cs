@@ -4,7 +4,8 @@ namespace Kharaei.Application;
 
 public class ArticleCategorySelectDto: BaseDto<ArticleCategorySelectDto, ArticleCategory, int>
 { 
-    public string Title { get; set; }     
+    public string Title { get; set; }    
+    public string ParentCategory { get; set; } 
 } 
 
 public class ArticleCategoryDto:BaseDto<ArticleCategoryDto, ArticleCategory, int>

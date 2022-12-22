@@ -1,7 +1,7 @@
 # Practical WebApi Project
 
 ## :star: Project description:
-This is a webapi project with dotnet7. In this practice project I have implemented the following list.
+This is a webapi project with .Net7 and in this practice project I have implemented the following list.
 
 ## :star: Project details:
 ### Implemented list:
@@ -11,7 +11,7 @@ This is a webapi project with dotnet7. In this practice project I have implement
       - Standard Api Result
       - Exception Handling
       - Automatic Validation
-   - use SqlServer & MySql with EFCore
+   - EFCore (SqlServer & MySql)
    - Identity
    - JWT Authentication
    - Api Versioning
@@ -37,5 +37,5 @@ This is a webapi project with dotnet7. In this practice project I have implement
 ## :star: Contact me:
 - Website: [https://kharaei.ir](https://kharaei.ir)
 - Linkedin: [@kharaei](https://www.linkedin.com/in/kharaei)
-- E-mail: [kharaee@gmail.com](mailto:kharaee@gmail.com)
-- Mobile: +98-911-9314956
+- Email: [kharaee@gmail.com](mailto:kharaee@gmail.com)
+- Mobile: +989119314956
