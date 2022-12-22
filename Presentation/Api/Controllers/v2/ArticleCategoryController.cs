@@ -7,7 +7,7 @@ namespace Kharaei.Api.Controllers.v2;
 
 [ApiVersion("2")]  
 [Authorize]
-[Route("api/v{version:apiVersion}/Article/Category")] 
+[Route("v{version:apiVersion}/Article/Category")] 
 public class ArticleCategoryController : CrudController<IArticleCategoryService, ArticleCategory, ArticleCategorySelectDto, ArticleCategoryDto, int>
 {
     private readonly IArticleCategoryService _articleCategoryService;

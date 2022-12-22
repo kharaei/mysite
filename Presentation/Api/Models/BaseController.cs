@@ -5,7 +5,7 @@ namespace Kharaei.Api;
  
 [ApiController] 
 [ApiResultFilter] 
-[Route("api/v{version:apiVersion}/[controller]")] 
+[Route("v{version:apiVersion}/[controller]")] 
 public class BaseController : ControllerBase
 {
     

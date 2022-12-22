@@ -12,7 +12,6 @@ using Kharaei.Domain;
 using Kharaei.Application;
 using Kharaei.Infra.Data;
 using Microsoft.Extensions.Configuration;
-using Pomelo.EntityFrameworkCore.MySql.Storage;
 
 namespace Kharaei.Infra.Ioc;
 

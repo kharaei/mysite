@@ -28,9 +28,9 @@ public class ArticleCategoryService : IArticleCategoryService
 
     public List<ArticleCategorySelectDto> Read()
     {
-        var articlecategories = _baseRepository.TableNoTracking.ToList();
-        var x = _mapper.Map<List<ArticleCategorySelectDto>>(articlecategories);
-        return x;
+        var articlecategories = _baseRepository.TableNoTracking.ToList(); 
+        var model = _mapper.Map<List<ArticleCategorySelectDto>>(articlecategories);
+        return model;
     }
     
     public ArticleCategory Read(int Id)
