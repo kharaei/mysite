@@ -40,9 +40,9 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-
+builder.Services.AddCors(option => option.AddDefaultPolicy(policy => { policy.WithOrigins("https://insta.kharaei.ir").AllowAnyHeader().AllowAnyMethod(); }));
 var app = builder.Build();
-
+app.UseCors();
 app.UseCustomExceptionHandler();
 
 // Configure the HTTP request pipeline.
