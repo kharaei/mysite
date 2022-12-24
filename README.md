@@ -15,12 +15,14 @@ This is a webapi project with .Net7 and in this practice project I have implemen
    - Identity
    - JWT Authentication
    - Api Versioning
+   - RESTful Api (without level 3)
    - Swagger Documentation
    - AutoMapper
 
 ### The following items will implement:
-   - RESTful
-   - Log
+   - HttpOnly Cookie
+   - Log (use NLog)
+   - Testing
    
 
 ## :star: Project presentations:

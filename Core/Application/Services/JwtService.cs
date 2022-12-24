@@ -12,11 +12,13 @@ public class JwtService : IJwtService
 {
     private readonly SiteSettings _siteSetting;
     private readonly SignInManager<User> _signInManager;
-    
-    public JwtService(IOptionsSnapshot<SiteSettings> settings, SignInManager<User> signInManager)
+    private readonly UserManager<User> _userManager;
+
+    public JwtService(IOptionsSnapshot<SiteSettings> settings, SignInManager<User> signInManager, UserManager<User> userManager)
     {
         _siteSetting = settings.Value;
         _signInManager = signInManager;
+        _userManager = userManager;
     }
 
     public async Task<string> Generate(User user)
@@ -58,11 +60,11 @@ public class JwtService : IJwtService
         {
             new Claim(ClaimTypes.Name, user.UserName),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()), 
-        };
-
-        //var roles = new Role[] { new Role { Name = "Admin" } };
-        //foreach (var role in roles)
-        //    list.Add(new Claim(ClaimTypes.Role, role.Name));
+        }; 
+        
+        var roles = _userManager.GetRolesAsync(user).Result;
+        foreach (var role in roles)           
+            list.Add(new Claim(ClaimTypes.Role, role));
 
         return list;
     }

@@ -153,6 +153,7 @@ public static class ServiceCollectionExtensions
 
                     if (context.AuthenticateFailure != null)
                         throw new AppException(ApiResultStatusCode.UnAuthorized, "Authenticate failure.", HttpStatusCode.Unauthorized, context.AuthenticateFailure, null);
+                        
                     throw new AppException(ApiResultStatusCode.UnAuthorized, "You are unauthorized to access this resource.", HttpStatusCode.Unauthorized);
 
                     //return Task.CompletedTask;

@@ -44,7 +44,7 @@ public static class CustomExceptionHandlerMiddlewareExtensions
             }
             catch (AppException exception)
             {
-                _logger.LogError(exception, exception.Message);
+                //_logger.LogError(exception, exception.Message);
                 httpStatusCode = exception.HttpStatusCode;
                 apiStatusCode = exception.ApiStatusCode;
 
@@ -73,19 +73,19 @@ public static class CustomExceptionHandlerMiddlewareExtensions
             }
             catch (SecurityTokenExpiredException exception)
             {
-                _logger.LogError(exception, exception.Message);
+                //_logger.LogError(exception, exception.Message);
                 SetUnAuthorizeResponse(exception);
                 await WriteToResponseAsync();
             }
             catch (UnauthorizedAccessException exception)
             {
-                _logger.LogError(exception, exception.Message);
+                //_logger.LogError(exception, exception.Message);
                 SetUnAuthorizeResponse(exception);
                 await WriteToResponseAsync();
             }
             catch (Exception exception)
             {
-                _logger.LogError(exception, exception.Message);
+                //_logger.LogError(exception, exception.Message);
 
                 if (_env.IsDevelopment())
                 {

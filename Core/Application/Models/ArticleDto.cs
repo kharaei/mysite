@@ -7,8 +7,7 @@ public class ArticleSelectDto: BaseDto<ArticleSelectDto, Article, int>
     public int Id { get; set; }
     public string Title { get; set; }   
     public string PublishDateTime { get; set; } 
-    public bool Status { get; set; }
-    public List<Link> Links { get; set; } = new List<Link>();
+    public bool Status { get; set; }    
 }
  
 public class ArticleDto:  BaseDto<ArticleDto, Article, int>
