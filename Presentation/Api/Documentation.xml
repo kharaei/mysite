@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kharaei.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Kharaei.Api.Controllers.v2.UserController.Login(Kharaei.Application.LoginDto)">
+            <summary>
+            This method generate OTP and send SMS
+            </summary> 
+        </member>
+        <member name="M:Kharaei.Api.Controllers.v2.UserController.Token(Kharaei.Application.TokenDto)">
+            <summary>
+            This method generate JWT Token
+            </summary> 
+        </member>
+    </members>
+</doc>

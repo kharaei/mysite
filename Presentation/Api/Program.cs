@@ -16,6 +16,9 @@ builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSwaggerGen(options =>
 {    
+    var xmlDocPath = Path.Combine(AppContext.BaseDirectory, "Documentation.xml");
+    options.IncludeXmlComments(xmlDocPath, true);
+
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme.",
@@ -40,12 +43,10 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-builder.Services.AddCors(option => option.AddDefaultPolicy(policy => { policy.WithOrigins("https://insta.kharaei.ir").AllowAnyHeader().AllowAnyMethod(); }));
 var app = builder.Build();
-app.UseCors();
+app.UseCors(builder => builder.WithOrigins("https://insta.kharaei.ir").AllowAnyHeader().AllowAnyOrigin());
 app.UseCustomExceptionHandler();
 
-// Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
     app.UseSwagger();
@@ -55,7 +56,8 @@ app.UseCustomExceptionHandler();
         {
             options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
                 description.GroupName.ToUpperInvariant());
-        }
+        };
+        options.DefaultModelsExpandDepth(-1);
     });
 //}
 

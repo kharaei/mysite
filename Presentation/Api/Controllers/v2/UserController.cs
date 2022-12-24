@@ -60,6 +60,9 @@ public class UserController : BaseController
         return Ok();
     }
 
+    /// <summary>
+    /// This method generate OTP and send SMS
+    /// </summary> 
     [HttpPost("Login")] 
     [AllowAnonymous]
     public ApiResult Login(LoginDto model)
@@ -68,6 +71,9 @@ public class UserController : BaseController
         return new ApiResult(true, ApiResultStatusCode.Success, "کد ورود به شماره موبایل شما ارسال شد.");
     }
 
+    /// <summary>
+    /// This method generate JWT Token
+    /// </summary> 
     [AllowAnonymous]
     [HttpPost("Token")] 
     public async Task<ApiResult<string>> Token(TokenDto model)
